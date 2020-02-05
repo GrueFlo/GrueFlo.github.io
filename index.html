@@ -1,542 +1,321 @@
-<!DOCTYPE html>
-<html lang="de-DE">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="profile" href="http://gmpg.org/xfn/11">
-        <link rel="pingback" href="https://floable.de/xmlrpc.php">
+<!doctype html>
+<html lang="en" style="scroll-behavior:smooth">
 
-        <title>Floable</title>
-<link rel='dns-prefetch' href='//fonts.googleapis.com' />
-<link rel='dns-prefetch' href='//s.w.org' />
-<link rel="alternate" type="application/rss+xml" title="Floable &raquo; Feed" href="https://floable.de/feed/" />
-<link rel="alternate" type="application/rss+xml" title="Floable &raquo; Kommentar-Feed" href="https://floable.de/comments/feed/" />
-		<script type="text/javascript">
-			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/floable.de\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.2.5"}};
-			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
-		</script>
-		<style type="text/css">
-img.wp-smiley,
-img.emoji {
-	display: inline !important;
-	border: none !important;
-	box-shadow: none !important;
-	height: 1em !important;
-	width: 1em !important;
-	margin: 0 .07em !important;
-	vertical-align: -0.1em !important;
-	background: none !important;
-	padding: 0 !important;
-}
-</style>
-	<link rel='stylesheet' id='wp-block-library-css'  href='https://floable.de/wp-includes/css/dist/block-library/style.min.css?ver=5.2.5' type='text/css' media='all' />
-<link rel='stylesheet' id='wc-block-style-css'  href='https://floable.de/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/style.css?ver=2.4.5' type='text/css' media='all' />
-<link rel='stylesheet' id='woocommerce-layout-css'  href='https://floable.de/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=3.8.1' type='text/css' media='all' />
-<link rel='stylesheet' id='woocommerce-smallscreen-css'  href='https://floable.de/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=3.8.1' type='text/css' media='only screen and (max-width: 768px)' />
-<link rel='stylesheet' id='woocommerce-general-css'  href='https://floable.de/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=3.8.1' type='text/css' media='all' />
-<style id='woocommerce-inline-inline-css' type='text/css'>
-.woocommerce form .form-row .required { visibility: visible; }
-</style>
-<link rel='stylesheet' id='byblos-style-css'  href='https://floable.de/wp-content/themes/byblos/style.css?ver=5.2.5' type='text/css' media='all' />
-<link rel='stylesheet' id='bootstrap-css'  href='https://floable.de/wp-content/themes/byblos/inc/css/bootstrap.css?ver=3.2.2' type='text/css' media='all' />
-<link rel='stylesheet' id='fontawesome-css'  href='https://floable.de/wp-content/themes/byblos/inc/css/font-awesome.min.css?ver=3.2.2' type='text/css' media='all' />
-<link rel='stylesheet' id='byblos-main-style-css'  href='https://floable.de/wp-content/themes/byblos/inc/css/style.css?ver=3.2.2' type='text/css' media='all' />
-<link rel='stylesheet' id='byblos-general-font-css'  href='//fonts.googleapis.com/css?family=Raleway%3A400%2C300%2C500%2C700&#038;ver=3.2.2' type='text/css' media='all' />
-<link rel='stylesheet' id='byblos-template-css'  href='https://floable.de/wp-content/themes/byblos/inc/css/temps/blue.css?ver=3.2.2' type='text/css' media='all' />
-<link rel='stylesheet' id='byblos-slider-style-css'  href='https://floable.de/wp-content/themes/byblos/inc/css/camera.css?ver=3.2.2' type='text/css' media='all' />
-<script type='text/javascript' src='https://floable.de/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
-<script type='text/javascript' src='https://floable.de/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
-<script type='text/javascript' src='https://floable.de/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4'></script>
-<script type='text/javascript'>
-/* <![CDATA[ */
-var byblosSlider = {"slide_timer":"5000","animation":"simpleFade","pagination":"1","animation_speed":"1500","desktop_height":"100","tablet_height":"100","mobile_height":"100","hover":"1"};
-/* ]]> */
-</script>
-<script type='text/javascript' src='https://floable.de/wp-content/themes/byblos/inc/js/script.js?ver=3.2.2'></script>
-<link rel='https://api.w.org/' href='https://floable.de/wp-json/' />
-<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://floable.de/xmlrpc.php?rsd" />
-<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://floable.de/wp-includes/wlwmanifest.xml" /> 
-<meta name="generator" content="WordPress 5.2.5" />
-<meta name="generator" content="WooCommerce 3.8.1" />
-    <style type="text/css">
-        body{
-            font-size: 20px;
-            font-family: Raleway, sans-serif;
-        }
-        
-        input[type="submit"] {
-            font-family: Raleway, sans-serif;
-        }
+<head>
+  <title>Greenwood</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    </style>
-    	<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
-	<link rel="icon" href="https://floable.de/wp-content/uploads/2019/09/cropped-FGLOGO-32x32.png" sizes="32x32" />
-<link rel="icon" href="https://floable.de/wp-content/uploads/2019/09/cropped-FGLOGO-192x192.png" sizes="192x192" />
-<link rel="apple-touch-icon-precomposed" href="https://floable.de/wp-content/uploads/2019/09/cropped-FGLOGO-180x180.png" />
-<meta name="msapplication-TileImage" content="https://floable.de/wp-content/uploads/2019/09/cropped-FGLOGO-270x270.png" />
-		<style type="text/css" id="wp-custom-css">
-			/* 
-    Created on : Nov 17, 2014, 3:49:41 PM
-    Author     : Bilal
-*/
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,700,900&display=swap" rel="stylesheet">
 
-a,a:visited,
-body.single-event .event-details {
-  color: #880003;
-}
-a:hover,#site-navigation.main-navigation li a:hover,
-.site-branding.dark #site-navigation.main-navigation li a:hover{
-    color: #880003;
-}
-.site-branding .site-title a{
-    color: #880003;
-}
-.primary-color{ color: #880003;}
-.btn-primary {
-    background-color: #880003;
-    border-color: #EB5E00;
-    color: #ffffff !important;    
-}
-a.button-primary,
-input[type="submit"]{
-    background-color: #880003;
-    color: #fff;
-}
-.button-primary:hover,
-input[type="submit"]:hover{
-    background-color: rgb(168, 16, 52);
-    color: #fff;
-}
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary:active,
-.btn-primary.active,
-.open .dropdown-toggle.btn-primary {
 
-}
-fieldset[disabled] .btn-primary.active {
-  background-color: #880003;
-}
-.btn-primary .badge {
-  color: #880003;
-}
-.btn-link {
-  color: #880003;
-}
-.sc-primary-color{ color: #880003;}
-.sc-primary-border{ border-color: #880003;}
-.site-branding .search-bar .search-field:focus{
-    border-bottom: 1px solid #880003;
-}
-.icon404{
-    color: #880003;
-}
-.nav-menu > li a:hover{
-    color: #880003;
-}
-.scroll-top:hover{
-    border-color: #880003;
-}
-#site-toolbar{
-    /*border-bottom: 1px solid #cd133f;*/
-}
-@media(max-width: 600px){
-    .nav-menu > li.current_page_item a{
-        color: #880003;
-    }      
-}
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+  <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/aos.css">
 
-/* Additional Rules */
-#sc-slider-banner.banner-below,
-.byblos-pricing-table .inner.special {
-    border-color: #880003;
-}
+  <!-- MAIN CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="images/logo.png">
+</head>
 
-.byblos-pricing-table .inner.special .widget-title,
-#homepage-area-b .byblos-pricing-table .inner.special span.special {
-    color: #880003;
-}
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
-.byblos-pricing-table .inner.special span.special,
-.camera_wrap .camera_pag .camera_pag_ul li:hover > span,
-.sc-slider-wrapper .camera_caption div a.slider-button,
-div#homepage-area-b.homepage-widget-area > .inner,
-body.single-event .event-details span.fa {
-    background-color: #880003;
-}
 
-.sc-slider-wrapper .camera_caption div a.slider-button:hover {
-    background-color: #880003;
-} 
+  <div class="site-wrap" id="home-section">
 
-/* -----*/
-
-.site-branding .site-title a{
-    color: #4609AF;
-}
-a.button-primary, input[type="submit"] {
-    background-color: #4609AF;
-    color: #fff;		</style>
-		    </head>
-
-    <body class="home blog theme-byblos woocommerce-no-js elementor-default">
-        <div id="page" class="hfeed site byblos-frontpage">
-            <header id="masthead" class="site-header" role="banner">
-                <div class="site-branding dark">
-                    <!--<div class="row ">-->
-                            <div class="col-xs-12 center">
-                                <div id="branding-wrap">
-                                    <h2 class="site-title">
-                                        <a href="https://floable.de/" rel="home">
-                                                                                        <img src="https://floable.de/wp-content/uploads/2019/09/FGLOGO.png" alt="" id="sc_logo"/>
-                                                                                    
-                                        </a>
-                                    </h2>
-                                                                    </div>
-                            </div>
-                            
-                            <div class="col-xs-12 menu-bar center bs_nopad">
-                                <nav id="site-navigation" class="main-navigation" role="navigation">
-                                    <div class="menu-flo-container"><ul id="menu-flo" class="menu"><li id="menu-item-131" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-131"><a href="https://floable.de/blog/">Blog</a></li>
-<li id="menu-item-387" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-387"><a href="https://floable.de/games/">Games</a></li>
-<li id="menu-item-132" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-132"><a href="https://floable.de/videos/">Videos</a></li>
-<li id="menu-item-133" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-133"><a href="https://floable.de/photography/">Gallery</a></li>
-<li id="menu-item-148" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-148"><a href="https://floable.de/meet-me-contact/">Contact &#038; imprint</a></li>
-</ul></div>                                </nav>
-                            </div>
-                    
-                            <div class="col-xs-12 search-bar center">
-                                <!-- header right -->
-                                
-<div id="secondary" class="widget-area" role="complementary">
-    
-    <aside id="text-5" class="widget widget_text"><h2 class="hidden">Florian Greenwood</h2>			<div class="textwidget"><p>Florian Greenwoods Blog</p>
-</div>
-		</aside>
-</div><!-- #secondary -->
-                            </div>
-                            <div class="col-xs-12" id="site-toolbar">
-                                        <div >    
-            
-                        <div class="contact-bar">
-               
-                
-                                    <a href="mailto:florian@gruenewald-mail.de" class="icon-map">
-                        
-                        <i class="fa fa-envelope"></i>
-                        <span>florian@gruenewald-mail.de</span>
-                        
-                    </a>
-                                
-                
-            </div>
-            
-                       
-            <div class="social-bar">
-                
-                <h3>Flow Together!</h3>
-                
-                                    <a href="https://www.facebook.com/FloGreenwood/" target="_blank" class="icon-facebook">
-                        <i class="fa fa-facebook"></i>
-                    </a>
-                                
-                                
-                                    <a href="https://www.instagram.com/greenwoodflo/?hl=de#" target="_blank" class="icon-instagram">
-                        <i class="fa fa-instagram"></i>
-                    </a>
-                                
-                
-                                    <a href="https://twitter.com/ArcadeGolian#" target="_blank" class="icon-twitter">
-                        <i class="fa fa-twitter"></i>                            
-                    </a>
-                
-                
-                                    <a href="http://floriangruenewald99@gmail.com" target="_blank" class="icon-gplus">
-                        <i class="fa fa-google-plus"></i>                            
-                    </a>
-                
-            </div>
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
         </div>
-                                    </div>
-                            <div class="col-xs-12 sc_footer">
-                                <p>Greenwood Productions</p>    
-        
-    <a href="https://smartcatdesign.net/" rel="designer" style="display: block !important;">Design by Greenwood</a>
-    
-
-                            </div>
-                    <!--</div>-->
-                </div>
-                <div class="site-branding-mobile dark">
-                    <div class="col-xs-2">
-                        <div id="tasty-mobile-toggle">
-                            <i class="fa fa-bars"></i>
-                            <div class="menu-flo-container"><ul id="menu-flo-1" class="menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-131"><a href="https://floable.de/blog/">Blog</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-387"><a href="https://floable.de/games/">Games</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-132"><a href="https://floable.de/videos/">Videos</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-133"><a href="https://floable.de/photography/">Gallery</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-148"><a href="https://floable.de/meet-me-contact/">Contact &#038; imprint</a></li>
-</ul></div>                        </div>  
-
-                                             
-                    </div>
-                    <div class="col-xs-10">
-                        <h2 class="site-title-mobile">
-                            <a href="https://floable.de/" rel="home">
-                                                                <img src="https://floable.de/wp-content/uploads/2019/09/FGLOGO.png" alt="" id="sc_logo"/>
-                                                                        
-                            </a>  
-                        </h2>
-                    </div>
-                </div>
-            </header><!-- #masthead -->
-
-<div class="site-content-wrapper">
-    <div id="content">
-
-        
-    <script>
-    
-        jQuery(document).ready(function($){
-
-        });
-
-    </script>
-    
-    <div class="sc-slider-wrapper">
-        
-	<div class="fluid_container">
-
-            <div class="camera_wrap" id="camera_wrap_1">
-
-                                    <div class="camera_inner" data-thumb="https://floable.de/wp-content/uploads/2019/05/IMG_0171.jpg" data-src="https://floable.de/wp-content/uploads/2019/05/IMG_0171.jpg">
-                        <div class="camera_caption moveFromRight">
-                            <span>Welcome to Flo&#039;s Blog!</span>
-                                                    </div>
-                    </div>
-                
-                                    <div class="camera_inner" data-thumb="https://floable.de/wp-content/uploads/2019/05/IMG_0196.jpg" data-src="https://floable.de/wp-content/uploads/2019/05/IMG_0196.jpg">
-                        <div class="camera_caption moveFromRight">
-                            <span>Featuring Nature itself!</span>
-                                                    </div>
-                    </div>
-                
-                                    <div class="camera_inner" data-thumb="https://floable.de/wp-content/uploads/2019/05/BloodMoonGallery-1.jpg" data-src="https://floable.de/wp-content/uploads/2019/05/BloodMoonGallery-1.jpg">
-                        <div class="camera_caption moveFromRight">
-                            <span>Bloodmoon whenever you want!</span>
-                                                    </div>
-                    </div>
-                
-                
-            </div><!-- #camera_wrap_1 -->
-
-        </div>
-        
-            
-        
-            
-            <div id="sc-slider-banner">
-                <div class="sc-slider-banner">
-                    <aside id="text-3" class="widget widget_text"><h2>Florian Greenwood</h2>			<div class="textwidget"><p>Photography, Videos &amp; Blogging</p>
-</div>
-		</aside>                </div>
-            </div>
-
-        
-        
+      </div>
+      <div class="site-mobile-menu-body"></div>
     </div>
 
-        
-                
-                
-                <div id="site-cta"><!-- #CTA boxes -->
 
-                <div class="col-sm-12 callout-title">
-            
-            <h2 class="center">Topics </h2>
-            <div class="underline"></div>
-            
-        </div>
-                
-        <div class="col4 site-cta">
-            <div style="background-image: url('https://floable.de/wp-content/uploads/2019/05/Reality.jpg');">
-                <div class="overlay">
-                    <h3>Photography</h3>
-                    <p class="desc">
-                        Photography is one of my passions. I put a lot of love into it. Check out my current Gallery!                    </p>
-                    <p class="mt20">
-                        <a href="https://floable.de/photography/" class="button button-default button-primary"> 
-                            Check it out!                        </a>
-                    </p>                    
-                </div>
+
+    <header class="site-navbar site-navbar-target" role="banner">
+
+      <div class="container">
+        <div class="row align-items-center position-relative">
+
+          <div class="col-3 ">
+            <div class="site-logo">
+              <a href="greenwoodflo.html" class="font-weight-bold">
+                <img src="images/logo.png" alt="Image" class="img-fluid">
+              </a>
             </div>
+          </div>
+
+          <div class="col-9  text-right">
+
+
+            <span class="d-inline-block d-lg-none"><a href="#"
+                class="text-white site-menu-toggle js-menu-toggle py-5 text-white"><span
+                  class="icon-menu h3 text-white"></span></a></span>
+
+
+
+            <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
+              <ul class="site-menu main-menu js-clone-nav ml-auto ">
+                <li class="active"><a href="greenwoodflo.html" class="nav-link">Home</a></li>
+                <li><a href="https://floable.de/meet-me-contact/" class="nav-link">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+
+
         </div>
-        
-        <div class="col4 site-cta mid">
-            <div style="background-image: url('https://floable.de/wp-content/uploads/2019/05/IMG_6192.jpg');">
-                <div class="overlay">
-                    <h3>Blog!</h3>
-                    <p class="desc">
-                        I blog about every Photosession, Video Release or Trip.  Discover it, as if you had been there!                    </p>
-                    <p class="mt20">
-                        <a href="https://floable.de/blog/" class="button button-default button-primary"> 
-                            Discover!                        </a>
-                    </p>                    
-                </div>
+      </div>
+
+    </header>
+
+    <div class="ftco-blocks-cover-1">
+      <div class="site-section-cover overlay" style="background-image: url('images/hero_1.jpg')">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-5" data-aos="fade-right">
+              <h1 class="mb-3 text-white">Florian Grünewald</h1>
+              <p>“The future depends on what you do today.” ― Gandhi</p>
+              <p>Interactive Media Design student</p>
+              <p class="d-flex align-items-center">
+              </p>
             </div>
+          </div>
         </div>
-        
-        <div class="col4 site-cta">
-            <div style="background-image: url('https://floable.de/wp-content/uploads/2019/05/IMG_20190424_172550-e1557677332521.jpg');">
-                <div class="overlay">
-                    <h3>Videos</h3>
-                    <p class="desc">
-                        Really interesting ideas arise when someone gives me an Editing Program!                    </p>
-                    <p class="mt20">
-                        <a href="https://floable.de/videos/" class="button button-default button-primary"> 
-                            Watch!                        </a>
-                    </p>                    
-                </div>
-            </div>
-        </div>
-
-        <div class="clear"></div>
-    </div><!-- #CTA boxes -->
-    <div class="clear"></div>
-                
-                
-                
-                
-            <script>
-
-                jQuery(document).ready(function($){
-                    
-                    /*
-                    * Handle Blog Roll Masonry
-                    */
-                    function doMasonry() {
-
-                        var $grid = $( ".item-home .inner" ).imagesLoaded(function () {
-                            $grid.masonry({
-                                itemSelector: '.item-post',
-                                columnWidth: '.grid-sizer',
-                                percentPosition: true,
-                                gutter: '.gutter-sizer',
-                                transitionDuration : '.75s',
-                            });
-                        });
-
-                        if ( $( window ).width() >= 992 ) {  
-
-                            $('.item-home .inner .gutter-sizer').css('width', '2%');
-                            $('.item-home .inner .grid-sizer').css('width', '32%');
-                            $('.item-home .inner .item-post').css('width', '32%');
-
-                        } else if ( $( window ).width() < 992 && $( window ).width() >= 768 ) {
-
-                            $('.item-home .inner .gutter-sizer').css('width', '2%');
-                            $('.item-home .inner .grid-sizer').css('width', '48%');
-                            $('.item-home .inner .item-post').css('width', '48%');
-
-                        } else {
-
-                            $('.item-home .inner .gutter-sizer').css('width', '0%');
-                            $('.item-home .inner .grid-sizer').css('width', '100%');
-                            $('.item-home .inner .item-post').css('width', '100%');
-
-                        }
-
-                    }
-
-                    /**
-                    * Call Masonry on window resize and load
-                    */
-                    $( window ).resize( function() {
-                        doMasonry();
-                    });
-                    doMasonry();
-
-                }); 
-
-            </script>
-            
-                
-        <div class="col-md-12 item-home">
-            
-                            
-                <div class="inner">
-                    <div class="grid-sizer"></div>
-                    <div class="gutter-sizer"></div>
-                    
-                        
-                        
-                            
-                </div>
-                
-                                
-        </div>
-
-                    
-        <div class="clear"></div>
-            
-        
+      </div>
     </div>
-    <footer id="colophon" class="site-footer" role="contentinfo">
-    <div class="footer-boxes">
-        <div class="">
-            <div class="col-md-12">
-                <div id="secondary" class="widget-area" role="complementary">
-        
-    
-    
-    
-    </div><!-- #secondary -->
-            </div>            
-        </div>        
+
+    <div class="site-section py-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <div class="heading-39101 mb-5">
+              <span class="backdrop" id="section2">Story</span>
+              <span class="subtitle-39191">Discover My Story</span>
+              <h3>My Story</h3>
+            </div>
+            <p>As you can see through The Blood Moon artwork on the right I'm full of creativity. I used to study
+              <strong><b>Computer Science</b>, but then changed direction to <b>Interactive Media Design. </b></strong>
+            </p>
+            <p>With this field of study I really have the feeling, that all my creative dreams are achievable. Even my
+              craziest one - <strong> <b>Creating an Interactive Multimedia Society on Mars.</b></strong></p>
+            <p>But I also want to change this world for the better. <b><strong>Global Warming, Neurosciences and
+                  Politics </strong></b> are also themes, that catch my interest. </p>
+            <p>In conclusion all these dreams only happen if I start being the change I want to see in this world. </p>
+            <p></p>
+            <p><strong><b>Or in Elon Musks Words: “I could either watch it happen or be a part of it.</b></strong>”
+            </p>
+          </div>
+          <div class="col-md-6" data-aos="fade-right">
+            <img src="images/traveler.jpg" alt="Image" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>>
+  </div>
+
+  <div class="site-section">
+
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-md-7">
+          <div class="heading-39101 mb-5">
+            <span class="backdrop text-center">Work</span>
+            <span class="subtitle-39191">Projects</span>
+            <h3>Your Fun Starts Here</h3>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
+          <div class="listing-item">
+            <div class="listing-image">
+              <img src="images/img_1.jpg" alt="Image" class="img-fluid">
+            </div>
+            <div class="listing-item-content">
+              <a class="px-3 mb-3 category bg-primary" href="games/Snake X Pacman/snakeXpacman.html">PLAY!</a>
+              <h2 class="mb-1"><a href="games/Snake X Pacman/snakeXpacman.html">SNAKE X PACMAN</a></h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
+          <div class="listing-item">
+            <div class="listing-image">
+              <img src="images/img_2.jpg" alt="Image" class="img-fluid">
+            </div>
+            <div class="listing-item-content">
+              <a class="px-3 mb-3 category bg-primary" href="D1/SEAL App/index.html">CHECK OUT!</a>
+              <h2 class="mb-1"><a href="D1/SEAL App/index.html">SEAL APP</a></h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
+          <div class="listing-item">
+            <div class="listing-image">
+              <img src="images/img_3.jpg" alt="Image" class="img-fluid">
+            </div>
+            <div class="listing-item-content">
+              <a class="px-3 mb-3 category bg-primary"
+                href="https://www.youtube.com/channel/UCXtbE5-DIoIQclrilgvP0Gw/featured">CHECK OUT!</a>
+              <h2 class="mb-1"><a href="https://www.youtube.com/channel/UCXtbE5-DIoIQclrilgvP0Gw/featured">STEVE JOBS &
+                  BILL GATES PODCAST</a></h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
+          <div class="listing-item">
+            <div class="listing-image">
+              <img src="images/img_4.jpg" alt="Image" class="img-fluid">
+            </div>
+            <div class="listing-item-content">
+              <a class="px-3 mb-3 category bg-primary" href="games/Lunar Lander/game.html">PLAY!</a>
+              <h2 class="mb-1"><a href="games/Lunar Lander/game.html">MARS LANDER</a></h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
+          <div class="listing-item">
+            <div class="listing-image">
+              <img src="images/img_5.jpg" alt="Image" class="img-fluid">
+            </div>
+            <div class="listing-item-content">
+              <a class="px-3 mb-3 category bg-primary" href="D1/SEAL Website/index.html">CHECK OUT!</a>
+              <h2 class="mb-1"><a href="D1/SEAL Website/index.html">SEAL WEBSITE</a></h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
+          <div class="listing-item">
+            <div class="listing-image">
+              <img src="images/img_6.jpg" alt="Image" class="img-fluid">
+            </div>
+            <div class="listing-item-content">
+              <a class="px-3 mb-3 category bg-primary" href="https://floable.de/">CHECK OUT!</a>
+              <h2 class="mb-1"><a href="https://floable.de/">MY OLD WEBSITE</a></h2>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
     </div>
-</footer><!-- #colophon -->
-</div><!-- #page -->
-	<script type="text/javascript">
-		var c = document.body.className;
-		c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
-		document.body.className = c;
-	</script>
-	<script type='text/javascript' src='https://floable.de/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.70'></script>
-<script type='text/javascript'>
-/* <![CDATA[ */
-var wc_add_to_cart_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","i18n_view_cart":"Warenkorb anzeigen","cart_url":"https:\/\/floable.de","is_cart":"","cart_redirect_after_add":"no"};
-/* ]]> */
-</script>
-<script type='text/javascript' src='https://floable.de/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=3.8.1'></script>
-<script type='text/javascript' src='https://floable.de/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4'></script>
-<script type='text/javascript'>
-/* <![CDATA[ */
-var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%"};
-/* ]]> */
-</script>
-<script type='text/javascript' src='https://floable.de/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=3.8.1'></script>
-<script type='text/javascript'>
-/* <![CDATA[ */
-var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","cart_hash_key":"wc_cart_hash_d2045d7a57defcc1e1e69a65477d2b6a","fragment_name":"wc_fragments_d2045d7a57defcc1e1e69a65477d2b6a","request_timeout":"5000"};
-/* ]]> */
-</script>
-<script type='text/javascript' src='https://floable.de/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=3.8.1'></script>
-<script type='text/javascript' src='https://floable.de/wp-content/themes/byblos/js/navigation.js?ver=3.2.2'></script>
-<script type='text/javascript' src='https://floable.de/wp-content/themes/byblos/inc/js/bootstrap.js?ver=3.2.2'></script>
-<script type='text/javascript' src='https://floable.de/wp-content/themes/byblos/js/skip-link-focus-fix.js?ver=3.2.2'></script>
-<script type='text/javascript' src='https://floable.de/wp-content/themes/byblos/inc/js/jquery.easing.1.3.js?ver=3.2.2'></script>
-<script type='text/javascript' src='https://floable.de/wp-content/themes/byblos/inc/js/camera.js?ver=3.2.2'></script>
-<script type='text/javascript' src='https://floable.de/wp-content/themes/byblos/inc/js/masonry.min.js?ver=3.2.2'></script>
-<script type='text/javascript' src='https://floable.de/wp-content/themes/byblos/inc/js/parallax.min.js?ver=3.2.2'></script>
-<script type='text/javascript' src='https://floable.de/wp-includes/js/wp-embed.min.js?ver=5.2.5'></script>
+  </div>
+
+
+
+
+  <div class="site-section bg-image overlay" style="background-image: url('images/hero_1.jpg')">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-7 text-center">
+          <h2 class="font-weight-bold text-white">Want to see more?</h2>
+          <p class="text-white">Im looking forward to creating new projects & work! So stay tuned and stay in touch with
+            me through Social Media or Mail!</p>
+          <p class="mb-0"><a href="mailto:florian@gruenewald-mail.de" class="btn btn-primary text-white py-3 px-4">Get
+              In Touch</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3">
+          <h2 class="footer-heading mb-3">Instagram</h2>
+          <div class="row">
+            <div class="col-4 gal_col">
+              <a href="https://www.instagram.com/greenwoodflo/"><img src="images/insta_1.jpg" alt="Image"
+                  class="img-fluid"></a>
+            </div>
+            <div class="col-4 gal_col">
+              <a href="https://www.instagram.com/greenwoodflo/"><img src="images/insta_2.jpg" alt="Image"
+                  class="img-fluid"></a>
+            </div>
+            <div class="col-4 gal_col">
+              <a href="https://www.instagram.com/greenwoodflo/"><img src="images/insta_3.jpg" alt="Image"
+                  class="img-fluid"></a>
+            </div>
+            <div class="col-4 gal_col">
+              <a href="https://www.instagram.com/greenwoodflo/"><img src="images/insta_4.jpg" alt="Image"
+                  class="img-fluid"></a>
+            </div>
+            <div class="col-4 gal_col">
+              <a href="https://www.instagram.com/greenwoodflo/"><img src="images/insta_5.jpg" alt="Image"
+                  class="img-fluid"></a>
+            </div>
+            <div class="col-4 gal_col">
+              <a href="https://www.instagram.com/greenwoodflo/"><img src="images/insta_6.jpg" alt="Image"
+                  class="img-fluid"></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8 ml-auto">
+          <div class="row">
+            <div class="col-lg-6 ml-auto">
+              <h2 class="footer-heading mb-4">Quick Links</h2>
+              <ul class="list-unstyled">
+                <li><a href="#">About Me</a></li>
+                <li><a href="#">Testimonials</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Privacy</a></li>
+                <li><a href="#">Contact Me</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-6">
+              <h2 class="footer-heading mb-4">Social Media</h2>
+              <p class="mb-0"><a href="https://www.facebook.com/florian.grunewald.16"
+                  class="btn btn-primary text-white py-3 px-4">Facebook</a></p>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="row pt-5 mt-5 text-center">
+        <div class="col-md-12">
+          <div class="border-top pt-5">
+            <p>
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              Copyright &copy;
+              <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made
+              with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com"
+                target="_blank">Colorlib </a>| Content Creator Florian Grünewald
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <//div>div> <script src="js/jquery-3.3.1.min.js">
+  </script>
+  <script src="js/jquery-migrate-3.0.0.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.sticky.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/jquery.fancybox.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/bootstrap-datepicker.min.js"></script>
+  <script src="js/isotope.pkgd.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/main.js"></script>
+
 </body>
+
 </html>
-</div>
-
-
-<!--
-Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
-
-
-Served from: floable.de @ 2019-12-14 12:07:17 by W3 Total Cache
--->

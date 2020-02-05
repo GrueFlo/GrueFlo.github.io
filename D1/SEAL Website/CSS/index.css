@@ -1,0 +1,102 @@
+/*Allgemeines*/
+body {
+  margin: 0;
+  padding: 0;
+  overflow-y: hidden;
+  background-color: rgb(253, 245, 230);
+  font-family: "Segoe UI";
+  src: url("Font/Segoe UI.ttf");
+  overflow-x: hidden;
+}
+
+.container {
+  display: flex;
+  flex-flow: row;
+  position: absolute;
+  width: 600%;
+  height: 100%;
+}
+
+.container div {
+  padding: 50px;
+  font-size: 18px;
+  border: 1px solid white;
+  flex: 10 0 auto;
+  -webkit-flex: 1;
+  min-width: 200px;
+  overflow-y: auto;
+}
+h2 {
+  color: rgb(30, 30, 30);
+  text-align: center;
+  font-family: bebas neue;
+  src: url("Font/BebasNeue-Regular.otf");
+  margin-right: 50px;
+}
+
+p {
+  color: rgb(70, 70, 70);
+}
+
+/*Startseite*/
+.box1 {
+  background-image: url("Images/Unbenannt-2.png");
+  background-size: auto 100vh;
+  text-align: center;
+  overflow-y: hidden;
+}
+
+.box1 p {
+  text-align: center;
+  font-size: 2em;
+  margin-top: -300px;
+  font-family: bebas neue;
+  src: url("Font/BebasNeue-Regular.otf");
+  color: rgb(230, 230, 230);
+}
+.box1 h2 {
+  font-size: 15em;
+  margin-top: 15vh;
+  color: rgb(230, 230, 230);
+}
+
+.headline {
+  font-size: 2em;
+  font-family: bebas neue;
+  src: url("Font/BebasNeue-Regular.otf");
+}
+
+/*Value Proposition & Botschaft*/
+
+.box2 {
+  text-align: center;
+}
+
+.container-nav {
+  flex-flow: column;
+  position: fixed;
+  display: flex;
+  width: 110px;
+  height: 100%;
+  right: 0;
+  z-index: +1;
+  background-color: rgb(8, 0, 30, 0.3);
+  border-left: 2px solid rgb(8, 0, 30, 0.7);
+}
+
+.navbox {
+  font-family: bebas neue;
+  font-size: 1.5em;
+  margin-top: 10vh;
+  color: rgb(230, 230, 230);
+  text-align: center;
+  font-weight: bold;
+}
+
+a:link {
+  text-decoration: none;
+}
+a:active,
+a:hover {
+  text-decoration: underline;
+}

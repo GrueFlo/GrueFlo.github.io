@@ -1,0 +1,12 @@
+body {
+  background-image: url('../assets/arcade4.png');
+  background-size:cover;
+  background-repeat: no-repeat;
+  text-align:center;
+  background-color: rgb(5, 0, 50);
+}
+
+canvas {
+  border: 1px solid rgb(255, 132, 0);
+}
+
