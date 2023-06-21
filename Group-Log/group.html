@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Data Display</title>
+    <title>Daily Briefing</title>
     <link rel="stylesheet" href="group-styles.css">
   </head>
   <body>
-    <h1>Data Display</h1>
+    <h1>Daily Briefing</h1>
+    <h2> Monday </h2>
 
     <div id="dataContainer">
       <table>
@@ -18,17 +19,18 @@
           <th>D</th>
         </tr>
         <tr>
-          <td class="backlog-column" rowspan="10">
+          <td class="backlog-column droppable-column" rowspan="10" ondrop="drop(event)" ondragover="allowDrop(event)">
             <div class="backlog-box backlog-box1" draggable="true" ondragstart="drag(event)" id="backlog1">
-              <span class="icon">1</span>Work-Package 1
+              <span class="icon">v</span>Work-Package 1
             </div>
             <div class="backlog-box backlog-box2" draggable="true" ondragstart="drag(event)" id="backlog2">
-              <span class="icon">2</span>Work-Package 2
+              <span class="icon">x</span>Work-Package 2
             </div>
             <div class="backlog-box backlog-box3" draggable="true" ondragstart="drag(event)" id="backlog3">
-              <span class="icon">3</span>Work-Package 3
+              <span class="icon">y</span>Work-Package 3
             </div>
-            <div class="backlog-box backlog-box4" draggable="true" ondragstart="drag(event)" id="backlog4">              <span class="icon">4</span>Work-Package 4
+            <div class="backlog-box backlog-box4" draggable="true" ondragstart="drag(event)" id="backlog4">              
+              <span class="icon">z</span>Work-Package 4
             </div>
           </td>
           <td class="timeline-column timeline-row1">
