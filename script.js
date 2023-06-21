@@ -54,7 +54,7 @@ const jsonString = JSON.stringify(summaryData);
 // Send JSON data to the new file or platform
 // You can use methods like fetch(), AJAX, or WebSocket to send the data
 // Example using fetch():
-fetch('http://localhost:3000', {
+fetch('https://grueflo.github.io/summary', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
