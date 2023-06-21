@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data Display</title>
+    <link rel="stylesheet" href="group-styles.css">
+  </head>
+  <body>
+    <h1>Data Display</h1>
+
+    <div id="dataContainer">
+      <table>
+        <tr>
+          <th>Backlog</th>
+          <th>Timeline</th>
+          <th>A</th>
+          <th>B</th>
+          <th>C</th>
+          <th>D</th>
+        </tr>
+        <tr>
+          <td class="backlog-column" rowspan="10">
+            <div class="backlog-box backlog-box1" draggable="true" ondragstart="drag(event)" id="backlog1">
+              <span class="icon">1</span>Work-Package 1
+            </div>
+            <div class="backlog-box backlog-box2" draggable="true" ondragstart="drag(event)" id="backlog2">
+              <span class="icon">2</span>Work-Package 2
+            </div>
+            <div class="backlog-box backlog-box3" draggable="true" ondragstart="drag(event)" id="backlog3">
+              <span class="icon">3</span>Work-Package 3
+            </div>
+            <div class="backlog-box backlog-box4" draggable="true" ondragstart="drag(event)" id="backlog4">              <span class="icon">4</span>Work-Package 4
+            </div>
+          </td>
+          <td class="timeline-column timeline-row1">
+            <div class="timestamp">6:00 - 7:00</div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <!-- Add 8 more rows for the timeline -->
+        <tr>
+          <td class="timeline-column timeline-row2">
+            <div class="timestamp">7:00 - 8:00</div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="timeline-column timeline-row3">
+            <div class="timestamp">8:00 - 9:00</div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="timeline-column timeline-row4">
+            <div class="timestamp">9:00 - 12:00</div>
+          </td>
+          <td class="droppable-column" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+          <td class="droppable-column" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+          <td class="droppable-column" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+          <td class="droppable-column" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+        </tr>
+        <tr>
+          <td class="timeline-column timeline-row5">
+            <div class="timestamp">12:00 - 13:00</div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="timeline-column timeline-row6">
+            <div class="timestamp">13:00 - 14:00</div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="timeline-column timeline-row7">
+            <div class="timestamp">14:00 - 17:00</div>
+          </td>
+          <td class="droppable-column" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+          <td class="droppable-column" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+          <td class="droppable-column" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+          <td class="droppable-column" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+        </tr>
+        <tr>
+          <td class="timeline-column timeline-row8">
+            <div class="timestamp">17:00 - 18:00</div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="timeline-column timeline-row9">
+            <div class="timestamp">18:00 - 19:00</div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="timeline-column timeline-row10">
+            <div class="timestamp">19:00 - 23:00</div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+      </table>
+    </div>
+
+    <script src="group-script.js"></script>
+  </body>
+</html>
