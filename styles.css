@@ -1,0 +1,170 @@
+/* CSS reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* Body styles */
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+/* Container styles */
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Slider container styles */
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px; /* Adjust the width as needed */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Heading styles */
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Slider styles */
+.slider {
+  width: 100%;
+  margin-bottom: 10px;
+  appearance: none;
+  background-color: #ccc;
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Label styles */
+label {
+  display: center;
+  font-weight: bold;
+  margin-bottom: 5px;
+  justify-content: space-between;
+}
+
+/* Slider value styles */
+.slider-value {
+  margin-top: 20px;
+  text-align: center;
+  color: #888;
+  visibility: hidden;
+}
+
+/* Slider circle styles */
+.slider-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 16px;
+  color: #fff;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Slider scale styles */
+.slider-scale {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 0px;
+}
+
+.scale-line {
+  width: 1px;
+  height: 6px;
+  background-color: #ccc;
+}
+
+/* Slider label styles */
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  width: 110%;
+  margin-top: 5px;
+}
+
+.label-left {
+  font-size: 12px;
+  text-align: left;
+}
+.label-middle {
+  font-size: 12px;
+  text-align: middle;
+}
+.label-right {
+  font-size: 12px;
+  text-align: right;
+}
+
+.summary-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  font-size: 16px;
+  color: #fff;
+}
+
+.summary-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.icon-row {
+  display: flex;
+  justify-content: space-between;
+  width: 80px; /* Adjust the width of the icon row as needed */
+  margin-bottom: 10px; /* Adjust the spacing between categories as needed */
+}
+
+.icon-row i {
+  font-size: 14px;
+  margin: 0 2px; /* Adjust the spacing between icons as needed */
+}
+
+#summaryValue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+/* Additional styles */
