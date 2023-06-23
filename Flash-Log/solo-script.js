@@ -39,35 +39,34 @@ document.addEventListener("DOMContentLoaded", function () {
         sliderValues.reduce((a, b) => a + b) / sliders.length
       );
 
-// Update the summary value and circle
-summaryValue.textContent = "Summary: " + summary;
-summaryCircle.textContent = summary;
+      // Update the summary value and circle
+      summaryValue.textContent = "Summary: " + summary;
+      summaryCircle.textContent = summary;
 
-// Create JSON object
-const summaryData = {
-  summary: summary
-};
+      // Create JSON object
+      const summaryData = {
+        summary: summary,
+      };
 
-// Convert JSON object to string
-const jsonString = JSON.stringify(summaryData);
+      // Convert JSON object to string
+      const jsonString = JSON.stringify(summaryData);
 
-// Send JSON data to the new file or platform
-// You can use methods like fetch(), AJAX, or WebSocket to send the data
-// Example using fetch():
-fetch('https://grueflo.github.io/summary', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: jsonString
-})
-  .then(response => {
-    // Handle the response if needed
-  })
-  .catch(error => {
-    // Handle any errors that occurred during the request
-  });
-
+      // Send JSON data to the new file or platform
+      // You can use methods like fetch(), AJAX, or WebSocket to send the data
+      // Example using fetch():
+      fetch("/summary", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: jsonString,
+      })
+        .then((response) => {
+          // Handle the response if needed
+        })
+        .catch((error) => {
+          // Handle any errors that occurred during the request
+        });
 
       // Change the color of the summary circle
       if (summary <= 20) {

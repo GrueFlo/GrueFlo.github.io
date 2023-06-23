@@ -2,160 +2,195 @@
 
 /* Styling for the table */
 table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  th,
-  td {
-    border: 1px solid #ccc;
-    padding: 8px;
-    text-align: center;
-  }
-  
-  th {
-    background-color: #f2f2f2;
-  }
-  
-  /* Styling for the Backlog column */
-  .backlog-column {
-    width: 160px;
-  }
-  
-  .backlog-box {
-    height: 100px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-    color: white;
-    margin-bottom: 10px;
-  }
-  
-  .icon {
-    font-size: 18px;
-    margin-right: 5px;
-    margin-left: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .backlog-box1 {
-    background-color: #ff7043;
-  }
-  
-  .backlog-box2 {
-    background-color: #4caf50;
-  }
-  
-  .backlog-box3 {
-    background-color: #2196f3;
-  }
-  
-  .backlog-box4 {
-    background-color: #ffc107;
-  }
-  
-  /* Styling for the Timeline column */
+  border-collapse: collapse;
+  width: 100%;
+}
 
-  
-  .timestamp {
-    font-weight: bold;
-    font-size: 12px;
-    padding: 4px;
-    color: #888;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 20px; /* Default height for timeline rows */
-  }
-  
-  .timeline-column,
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+/* Styling for the Backlog column */
+.backlog-column {
+  width: 160px;
+}
+
+.backlog-box {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.icon {
+  font-size: 18px;
+  margin-right: 5px;
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.backlog-box1 {
+  background-color: #ff7043;
+}
+
+.backlog-box2 {
+  background-color: #4caf50;
+}
+
+.backlog-box3 {
+  background-color: #2196f3;
+}
+
+.backlog-box4 {
+  background-color: #ffc107;
+}
+
+/* Styling for the Timeline column */
+
+.timestamp {
+  font-weight: bold;
+  font-size: 12px;
+  padding: 4px;
+  color: #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 15px; /* Default height for timeline rows */
+}
+
+.timeline-column,
 .droppable-column {
   position: relative;
 }
 
-  /* Custom height for individual timeline rows */
-  .timeline-row1 .timestamp {
-    height: 5px;
-  }
-  
-  .timeline-row2 .timestamp {
-    height: 5px;
-  }
-  
-  .timeline-row3 .timestamp {
-    height: 5px;
-  }
-  
-  .timeline-row4 .timestamp {
-    height: 110px;
-  }
+/* Custom height for individual timeline rows */
+.timeline-row1 .timestamp {
+  height: 5px;
+}
 
-  .timeline-row5 .timestamp {
-    height: 5px;
-  }
-  
-  .timeline-row6 .timestamp {
-    height: 5px;
-  }
-  
-  .timeline-row7 .timestamp {
-    height: 110px;
-  }
-  
-  .timeline-row8 .timestamp {
-    height: 5px;
-  }
+.timeline-row2 .timestamp {
+  height: 5px;
+}
 
-  .timeline-row9 .timestamp {
-    height: 5px;
-  }
-  
-  .timeline-row10 .timestamp {
-    height: 110px;
-  }
-  
+.timeline-row3 .timestamp {
+  height: 5px;
+}
+
+.timeline-row4 .timestamp {
+  height: 110px;
+}
+
+.timeline-row5 .timestamp {
+  height: 5px;
+}
+
+.timeline-row6 .timestamp {
+  height: 5px;
+}
+
+.timeline-row7 .timestamp {
+  height: 110px;
+}
+
+.timeline-row8 .timestamp {
+  height: 5px;
+}
+
+.timeline-row9 .timestamp {
+  height: 5px;
+}
+
+.timeline-row10 .timestamp {
+  height: 110px;
+}
+
 /* group-styles.css */
 
 /* Rest of the styles... */
 
 /* Styling for the droppable columns */
 .droppable-column {
-    width: 120px; /* Set the desired width of the droppable columns */
-    min-height: 100px;
-    background-color: #f2f2f2;
-    position: relative;
-  }
+  width: 120px; /* Set the desired width of the droppable columns */
+  min-height: 100px;
+  background-color: #f2f2f2;
+  position: relative;
+}
 
-  
-  
-  .droppable-column.highlight {
-    background-color: #e0e0e0;
-  }
-  
-  .dropped-box {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: inherit !important;
-    height: inherit !important;
-  }
-  
+.droppable-column.highlight {
+  background-color: #e0e0e0;
+}
 
+.dropped-box {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: inherit !important;
+  height: inherit !important;
+}
 
-  /* General styles */
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-  }
-  
-  h1, h2 {
-    margin-top: 0;
-    text-align: center;
-  }
-  
+/* CSS for the new column classes */
+
+.column-a {
+  background-color: #ff7043;
+}
+
+.column-b {
+  background-color: #4caf50;
+}
+
+.column-c {
+  background-color: #2196f3;
+}
+
+.column-d {
+  background-color: #ffc107;
+}
+
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+h1,
+h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.summary-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 10px;
+  font-size: 16px;
+  color: #fff;
+}
+
+#summaryValue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
