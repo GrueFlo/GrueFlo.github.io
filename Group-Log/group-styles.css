@@ -176,56 +176,32 @@ h2 {
   text-align: center;
 }
 
-.summary-circleA {
+.summary-circle {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background-color: #ccc;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
   font-size: 16px;
   color: #fff;
+}
+
+.summary-circleA {
+  background-color: #ccc;
 }
 
 .summary-circleB {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
   background-color: #ccc;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  font-size: 16px;
-  color: #fff;
 }
 
 .summary-circleC {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
   background-color: #ccc;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  font-size: 16px;
-  color: #fff;
 }
 
 .summary-circleD {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
   background-color: #ccc;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  font-size: 16px;
-  color: #fff;
 }
 
 #summaryValue {

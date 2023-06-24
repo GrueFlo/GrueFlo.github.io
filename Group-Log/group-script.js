@@ -20,7 +20,7 @@ function drop(event) {
   const isDropAllowed =
     timestamp === "9:00 - 12:00" ||
     timestamp === "14:00 - 17:00" ||
-    "backlog-column";
+    event.target.classList.contains("backlog-column");
   const isTargetColumn =
     event.target.classList.contains("droppable-column") ||
     event.target.classList.contains("backlog-column");
@@ -34,47 +34,56 @@ function drop(event) {
   }
 }
 
-fetch("/crewPackage")
-  .then((res) => res.json())
-  .then((jsonData) => {
-    console.log(jsonData); // Log the jsonData object to inspect its structure
-
-    processCrewPackage(jsonData);
-  })
-  .catch((error) => {
-    console.log(error); // Handle any errors that occur during the fetch request
-  });
-
-function processCrewPackage(crewPackage) {
-  const summaryValueA = document.getElementById("summaryValueA");
-  const summaryValueB = document.getElementById("summaryValueB");
-  const summaryValueC = document.getElementById("summaryValueC");
-  const summaryValueD = document.getElementById("summaryValueD");
-
-  updateSummaryValue(summaryValueA, crewPackage.A?.summary);
-  updateSummaryValue(summaryValueB, crewPackage.B?.summary);
-  updateSummaryValue(summaryValueC, crewPackage.C?.summary);
-  updateSummaryValue(summaryValueD, crewPackage.D?.summary);
+function fetchAndProcessCrewPackages() {
+  fetch("/crewPackage")
+    .then((res) => res.json())
+    .then((jsonData) => {
+      console.log(jsonData); // Log the jsonData object to inspect its structure
+      processCrewPackages(jsonData);
+    })
+    .catch((error) => {
+      console.log(error); // Handle any errors that occur during the fetch request
+    });
 }
 
-function updateSummaryValue(element, value) {
-  const summaryCircle = element.querySelector(".summary-circle");
+function processCrewPackages(crewPackage) {
+  const summaryCircleA = document.getElementById("summaryValueA");
+  const summaryCircleB = document.getElementById("summaryValueB");
+  const summaryCircleC = document.getElementById("summaryValueC");
+  const summaryCircleD = document.getElementById("summaryValueD");
 
-  element.textContent = "Summary: " + (value || "");
+  updateSummaryCircle(summaryCircleA, crewPackage?.A);
+  updateSummaryCircle(summaryCircleB, crewPackage?.B);
+  updateSummaryCircle(summaryCircleC, crewPackage?.C);
+  updateSummaryCircle(summaryCircleD, crewPackage?.D);
+}
 
-  if (summaryCircle) {
-    summaryCircle.textContent = value || "";
+function updateSummaryCircle(element, summary) {
+  element.textContent = "Summary: " + (summary?.summary || "");
 
-    if (value <= 20) {
-      summaryCircle.style.backgroundColor = "red";
-    } else if (value <= 40) {
-      summaryCircle.style.backgroundColor = "orange";
-    } else if (value <= 60) {
-      summaryCircle.style.backgroundColor = "green";
-    } else if (value <= 80) {
-      summaryCircle.style.backgroundColor = "blue";
-    } else {
-      summaryCircle.style.backgroundColor = "purple";
-    }
+  if (summary?.summary) {
+    element.style.backgroundColor = getBackgroundColor(summary.summary);
+  } else {
+    element.style.backgroundColor = "";
   }
 }
+
+function getBackgroundColor(value) {
+  if (value <= 20) {
+    return "red";
+  } else if (value >= 20 && value <= 40) {
+    return "orange";
+  } else if (value >= 40 && value <= 60) {
+    return "green";
+  } else if (value >= 60 && value <= 80) {
+    return "orange";
+  } else if (value >= 80) {
+    return "red";
+  }
+}
+
+// Initial fetch and process
+fetchAndProcessCrewPackages();
+
+// Set interval to fetch and process crew packages every 5 seconds
+setInterval(fetchAndProcessCrewPackages, 2000); // Adjust the interval duration as needed
