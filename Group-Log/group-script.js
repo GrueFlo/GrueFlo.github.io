@@ -51,27 +51,27 @@ function processCrewPackage(crewPackage) {
   const summaryValueC = document.getElementById("summaryValueC");
   const summaryValueD = document.getElementById("summaryValueD");
 
-  updateSummaryValue(summaryValueA, crewPackage.A?.summaryA);
-  updateSummaryValue(summaryValueB, crewPackage.B?.summaryB);
-  updateSummaryValue(summaryValueC, crewPackage.C?.summaryC);
-  updateSummaryValue(summaryValueD, crewPackage.D?.summaryD);
+  updateSummaryValue(summaryValueA, crewPackage.A?.summary);
+  updateSummaryValue(summaryValueB, crewPackage.B?.summary);
+  updateSummaryValue(summaryValueC, crewPackage.C?.summary);
+  updateSummaryValue(summaryValueD, crewPackage.D?.summary);
 }
 
-function updateSummaryValue(element, summary) {
+function updateSummaryValue(element, value) {
   const summaryCircle = element.querySelector(".summary-circle");
 
-  element.textContent = "Summary: " + (summary || "");
+  element.textContent = "Summary: " + (value || "");
 
   if (summaryCircle) {
-    summaryCircle.textContent = summary || "";
+    summaryCircle.textContent = value || "";
 
-    if (summary <= 20) {
+    if (value <= 20) {
       summaryCircle.style.backgroundColor = "red";
-    } else if (summary <= 40) {
+    } else if (value <= 40) {
       summaryCircle.style.backgroundColor = "orange";
-    } else if (summary <= 60) {
+    } else if (value <= 60) {
       summaryCircle.style.backgroundColor = "green";
-    } else if (summary <= 80) {
+    } else if (value <= 80) {
       summaryCircle.style.backgroundColor = "blue";
     } else {
       summaryCircle.style.backgroundColor = "purple";
