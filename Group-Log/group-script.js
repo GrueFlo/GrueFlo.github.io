@@ -34,30 +34,47 @@ function drop(event) {
   }
 }
 
-fetch("/summary")
+fetch("/crewPackage")
   .then((res) => res.json())
   .then((jsonData) => {
     console.log(jsonData); // Log the jsonData object to inspect its structure
 
-    const summaryValue = document.getElementById("summaryValue");
-    const summaryCircle = document.querySelector(".summary-circle");
-
-    summaryValue.textContent = "Summary: " + jsonData.A.summary;
-    summaryCircle.textContent = jsonData.A.summary;
-
-    // Change the color of the summary circle
-    if (jsonData.A.summary <= 20) {
-      summaryCircle.style.backgroundColor = "red";
-    } else if (jsonData.A.summary >= 20 && jsonData.A.summary <= 40) {
-      summaryCircle.style.backgroundColor = "orange";
-    } else if (jsonData.A.summary >= 40 && jsonData.A.summary <= 60) {
-      summaryCircle.style.backgroundColor = "green";
-    } else if (jsonData.A.summary >= 60 && jsonData.A.summary <= 80) {
-      summaryCircle.style.backgroundColor = "orange";
-    } else if (jsonData.A.summary >= 80) {
-      summaryCircle.style.backgroundColor = "red";
-    }
+    processCrewPackage(jsonData);
   })
   .catch((error) => {
     console.log(error); // Handle any errors that occur during the fetch request
   });
+
+function processCrewPackage(crewPackage) {
+  const summaryValueA = document.getElementById("summaryValueA");
+  const summaryValueB = document.getElementById("summaryValueB");
+  const summaryValueC = document.getElementById("summaryValueC");
+  const summaryValueD = document.getElementById("summaryValueD");
+
+  updateSummaryValue(summaryValueA, crewPackage.A?.summaryA);
+  updateSummaryValue(summaryValueB, crewPackage.B?.summaryB);
+  updateSummaryValue(summaryValueC, crewPackage.C?.summaryC);
+  updateSummaryValue(summaryValueD, crewPackage.D?.summaryD);
+}
+
+function updateSummaryValue(element, summary) {
+  const summaryCircle = element.querySelector(".summary-circle");
+
+  element.textContent = "Summary: " + (summary || "");
+
+  if (summaryCircle) {
+    summaryCircle.textContent = summary || "";
+
+    if (summary <= 20) {
+      summaryCircle.style.backgroundColor = "red";
+    } else if (summary <= 40) {
+      summaryCircle.style.backgroundColor = "orange";
+    } else if (summary <= 60) {
+      summaryCircle.style.backgroundColor = "green";
+    } else if (summary <= 80) {
+      summaryCircle.style.backgroundColor = "blue";
+    } else {
+      summaryCircle.style.backgroundColor = "purple";
+    }
+  }
+}

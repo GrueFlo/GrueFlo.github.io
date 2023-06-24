@@ -74,6 +74,9 @@ th {
 .timeline-column,
 .droppable-column {
   position: relative;
+  overflow-x: auto; /* Enable horizontal scrolling if needed */
+  white-space: nowrap; /* Prevent line breaks in the content */
+  width: 10%;
 }
 
 /* Custom height for individual timeline rows */
@@ -181,8 +184,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: auto;
-  margin-top: 10px;
+  margin: 0 auto;
   font-size: 16px;
   color: #fff;
 }

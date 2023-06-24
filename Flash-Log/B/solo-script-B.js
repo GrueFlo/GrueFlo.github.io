@@ -44,17 +44,17 @@ document.addEventListener("DOMContentLoaded", function () {
       summaryCircle.textContent = summary;
 
       // Create JSON object
-      const summaryData = {
+      const flashLogB = {
         summary: summary,
       };
 
       // Convert JSON object to string
-      const jsonString = JSON.stringify(summaryData);
+      const jsonString = JSON.stringify(flashLogB);
 
       // Send JSON data to the new file or platform
       // You can use methods like fetch(), AJAX, or WebSocket to send the data
       // Example using fetch():
-      fetch("/summary", {
+      fetch("/flashLogB", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -84,28 +84,14 @@ document.addEventListener("DOMContentLoaded", function () {
       // Add icons to the summary circle based on tendencies
       let icons = "";
 
-      // Well-being Slider Icons
-      const wellBeingSlider = document.getElementById("slider1");
-      const wellBeingValue = parseInt(wellBeingSlider.value);
-
-      if (wellBeingValue <= 20) {
-        icons += "💤"; // Bored emoji
-      } else if (wellBeingValue >= 80) {
-        icons += "⚡️"; // Lightning symbol
-      } else {
-        icons += ""; // No icon
-      }
-
       // Work Slider Icons
       const workSlider = document.getElementById("slider2");
       const workValue = parseInt(workSlider.value);
 
       if (workValue <= 20) {
-        icons += "😔"; // Bored emoji
+        icons += "2less💼"; // Bored emoji
       } else if (workValue >= 80) {
-        icons += "💼"; // Work symbol
-      } else {
-        icons += ""; // No icon
+        icons += "2much💼"; // Work symbol
       }
 
       // Socializing Slider Icons
@@ -114,12 +100,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (socializingValue <= 20) {
         icons += "❗️"; // Exclamation mark symbol
-        icons += "👥"; // People symbol
       } else if (socializingValue >= 80) {
         icons += "❓"; // Question mark symbol
-        icons += "👤"; // User symbol
-      } else {
-        icons += "👤"; // User symbol
       }
 
       summaryIcons.innerHTML = icons;

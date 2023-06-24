@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flash-Log Prototype</title>
+    <link rel="stylesheet" type="text/css" href="../solo-styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  </head>
+  <body>
+    <div class="container">
+      <h1>Flash-Log</h1>
+
+      <div class="slider-container">
+        <label for="slider1">How is your well-being?:</label>
+        <input
+          type="range"
+          id="slider1"
+          class="slider"
+          min="0"
+          max="100"
+          value="50"
+        />
+        <div class="slider-scale">
+          <div class="scale-line"></div>
+          <div class="scale-line"></div>
+          <div class="scale-line"></div>
+          <div class="scale-line"></div>
+          <div class="scale-line"></div>
+        </div>
+        <div class="slider-labels">
+          <span class="label-left">Bored</span>
+          <span class="label-middle">Content</span>
+          <span class="label-right">Stressed</span>
+        </div>
+        <div class="slider-circle"></div>
+        <div class="slider-value" id="slider1Value"></div>
+      </div>
+      <br />
+
+      <div class="slider-container">
+        <label for="slider2">How should work be today?:</label>
+        <input
+          type="range"
+          id="slider2"
+          class="slider"
+          min="0"
+          max="100"
+          value="25"
+        />
+        <div class="slider-scale">
+          <div class="scale-line"></div>
+          <div class="scale-line"></div>
+          <div class="scale-line"></div>
+          <div class="scale-line"></div>
+          <div class="scale-line"></div>
+        </div>
+        <div class="slider-labels">
+          <span class="label-left">Easy</span>
+          <span class="label-middle">Challenging</span>
+          <span class="label-right">Hard</span>
+        </div>
+        <div class="slider-circle"></div>
+        <div class="slider-value" id="slider2Value"></div>
+      </div>
+      <br />
+
+      <div class="slider-container">
+        <label for="slider3">How much socializing today?:</label>
+        <input
+          type="range"
+          id="slider3"
+          class="slider"
+          min="0"
+          max="100"
+          value="75"
+        />
+        <div class="slider-scale">
+          <div class="scale-line"></div>
+          <div class="scale-line"></div>
+          <div class="scale-line"></div>
+          <div class="scale-line"></div>
+          <div class="scale-line"></div>
+        </div>
+        <div class="slider-labels">
+          <span class="label-left">None</span>
+          <span class="label-middle">Medium</span>
+          <span class="label-right">Copious</span>
+        </div>
+        <div class="slider-circle"></div>
+        <div class="slider-value" id="slider3Value"></div>
+      </div>
+      <br />
+
+      <div class="summary-value">
+        <p id="summaryValue">Summary: 0</p>
+        <div class="summary-circle"></div>
+        <div class="summary-icons">
+          <p div class="icon-row">
+            <i class="fas fa-bolt"></i>
+            <i class="fas fa-user"></i>
+          </div>
+        </p>
+          <p div class="icon-row">
+            <i class="fas fa-cogs"></i>
+            <i class="fas fa-user"></i>
+          </div>
+        </p>
+          <br>
+          <p div class="icon-row">
+            <i class="fas fa-comments"></i>
+            <i class="fas fa-user"></i>
+          </div>
+        </p>
+          <br>
+        </div>
+      </div>
+      
+
+    <script src="solo-script-D.js"></script>
+  </body>
+</html>
