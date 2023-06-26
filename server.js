@@ -17,7 +17,7 @@ app.post("/FlashLogA", (req, res) => {
   const jsonData = req.body;
   crewPackage.A = jsonData;
 
-  console.log(jsonData); // Do whatever you want with the received JSON data
+  //console.log(jsonData); // Do whatever you want with the received JSON data
 
   // Send response if needed
   res.sendStatus(200);
@@ -27,7 +27,7 @@ app.post("/FlashLogB", (req, res) => {
   const jsonData = req.body;
   crewPackage.B = jsonData;
 
-  console.log(jsonData); // Do whatever you want with the received JSON data
+  //console.log(jsonData); // Do whatever you want with the received JSON data
 
   // Send response if needed
   res.sendStatus(200);
@@ -37,7 +37,7 @@ app.post("/FlashLogC", (req, res) => {
   const jsonData = req.body;
   crewPackage.C = jsonData;
 
-  console.log(jsonData); // Do whatever you want with the received JSON data
+  // console.log(jsonData); // Do whatever you want with the received JSON data
 
   // Send response if needed
   res.sendStatus(200);
@@ -47,7 +47,7 @@ app.post("/FlashLogD", (req, res) => {
   const jsonData = req.body;
   crewPackage.D = jsonData;
 
-  console.log(jsonData); // Do whatever you want with the received JSON data
+  // console.log(jsonData); // Do whatever you want with the received JSON data
 
   // Send response if needed
   res.sendStatus(200);
@@ -55,6 +55,7 @@ app.post("/FlashLogD", (req, res) => {
 
 app.get("/crewPackage", (req, res) => {
   res.json(crewPackage);
+  console.log(crewPackage);
 });
 
 // Send crewPackage data to the new script

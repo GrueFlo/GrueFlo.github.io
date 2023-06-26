@@ -43,31 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
       summaryValue.textContent = "Summary: " + summary;
       summaryCircle.textContent = summary;
 
-      // Create JSON object
-      const flashLogA = {
-        summary: summary,
-      };
-
-      // Convert JSON object to string
-      const jsonString = JSON.stringify(flashLogA);
-
-      // Send JSON data to the new file or platform
-      // You can use methods like fetch(), AJAX, or WebSocket to send the data
-      // Example using fetch():
-      fetch("/flashLogA", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: jsonString,
-      })
-        .then((response) => {
-          // Handle the response if needed
-        })
-        .catch((error) => {
-          // Handle any errors that occurred during the request
-        });
-
       // Change the color of the summary circle
       if (summary <= 20) {
         summaryCircle.style.backgroundColor = "red";
@@ -105,6 +80,33 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       summaryIcons.innerHTML = icons;
+
+      // Create JSON object
+      const flashLogA = {
+        workload: workValue,
+        socialcontact: socializingValue,
+        mood: summary,
+      };
+
+      // Convert JSON object to string
+      const jsonString = JSON.stringify(flashLogA);
+
+      // Send JSON data to the new file or platform
+      // You can use methods like fetch(), AJAX, or WebSocket to send the data
+      // Example using fetch():
+      fetch("/flashLogA", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: jsonString,
+      })
+        .then((response) => {
+          // Handle the response if needed
+        })
+        .catch((error) => {
+          // Handle any errors that occurred during the request
+        });
     });
   });
 });

@@ -105,19 +105,19 @@ function processCrewPackages(crewPackage) {
   const summaryCircleC = document.getElementById("summaryValueC");
   const summaryCircleD = document.getElementById("summaryValueD");
 
-  updateSummaryCircle(summaryCircleA, crewPackage?.A);
-  updateSummaryCircle(summaryCircleB, crewPackage?.B);
-  updateSummaryCircle(summaryCircleC, crewPackage?.C);
-  updateSummaryCircle(summaryCircleD, crewPackage?.D);
+  updateSummaryCircle(summaryCircleA, crewPackage?.A, "A");
+  updateSummaryCircle(summaryCircleB, crewPackage?.B, "B");
+  updateSummaryCircle(summaryCircleC, crewPackage?.C, "C");
+  updateSummaryCircle(summaryCircleD, crewPackage?.D, "D");
 
   console.log(boxArray);
 }
 
-function updateSummaryCircle(element, summary) {
-  element.textContent = "Summary: " + (summary?.summary || "");
+function updateSummaryCircle(element, summary, packageId) {
+  element.textContent = `Summary ${packageId}: ${summary?.mood || ""}`;
 
-  if (summary?.summary) {
-    element.style.backgroundColor = getBackgroundColor(summary.summary);
+  if (summary?.mood) {
+    element.style.backgroundColor = getBackgroundColor(summary.mood);
   } else {
     element.style.backgroundColor = "";
   }
