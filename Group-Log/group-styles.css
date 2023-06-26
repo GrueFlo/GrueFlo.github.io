@@ -33,6 +33,32 @@ th {
   margin-bottom: 10px;
 }
 
+.backlog-box-empty {
+  height: 20%;
+  width: 100%;
+  display: flex;
+  text-align: left;
+  justify-content: left;
+  border-radius: 4px;
+  background-color: #f3f3f3;
+  margin-bottom: 10px;
+  font-size: small;
+  color: black;
+}
+
+.backlog-box-all {
+  height: 20%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  background-color: black;
+  margin-bottom: 10px;
+  font-size: small;
+  color: white;
+}
+
 .icon {
   font-size: 18px;
   margin-right: 5px;
@@ -75,7 +101,6 @@ th {
 .droppable-column {
   position: relative;
   overflow-x: auto; /* Enable horizontal scrolling if needed */
-  white-space: nowrap; /* Prevent line breaks in the content */
   width: 10%;
 }
 
@@ -183,25 +208,10 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  margin: 10px auto;
   font-size: 16px;
   color: #fff;
-}
-
-.summary-circleA {
-  background-color: #ccc;
-}
-
-.summary-circleB {
-  background-color: #ccc;
-}
-
-.summary-circleC {
-  background-color: #ccc;
-}
-
-.summary-circleD {
-  background-color: #ccc;
+  position: relative;
 }
 
 #summaryValue {
@@ -210,4 +220,37 @@ h2 {
   align-items: center;
   margin-top: 20px;
   font-size: 14px;
+}
+
+.circle-outline {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  border-width: 8px;
+  border-style: solid;
+}
+
+.circle-content {
+  position: relative;
+  display: flex;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1; /* Add this line to set a higher z-index */
+}
+
+.circle-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  position: relative;
+  object-fit: cover;
+  /* Add any other styles you need for the image */
 }

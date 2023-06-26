@@ -116,14 +116,43 @@ function processCrewPackages(crewPackage) {
 function updateSummaryCircle(element, summary, packageId) {
   element.textContent = `Summary ${packageId}: ${summary?.mood || ""}`;
 
-  if (summary?.mood) {
-    element.style.backgroundColor = getBackgroundColor(summary.mood);
+  const imageUrl = getImageUrl(packageId); // Get the image URL based on the packageId
+  if (summary?.mood && imageUrl) {
+    const imgElement = document.createElement("img");
+    imgElement.classList.add("circle-image");
+    imgElement.src = imageUrl; // Set the src attribute with the image URL
+
+    const circleOutline = document.createElement("div");
+    circleOutline.classList.add("circle-outline");
+    circleOutline.style.borderColor = getOutlineColor(summary.mood); // Set the outline color
+
+    const circleContent = document.createElement("div");
+    circleContent.classList.add("circle-content");
+    circleContent.appendChild(imgElement);
+
+    circleOutline.appendChild(circleContent);
+    element.innerHTML = "";
+    element.appendChild(circleOutline);
   } else {
-    element.style.backgroundColor = "";
+    element.innerHTML = ""; // Clear the content if no image is available
   }
 }
 
-function getBackgroundColor(value) {
+function getImageUrl(packageId) {
+  // Return the image URL based on the packageId
+  if (packageId === "A") {
+    return "Assets/image-a.jpg";
+  } else if (packageId === "B") {
+    return "Assets/image-b.jpg";
+  } else if (packageId === "C") {
+    return "Assets/image-c.jpg";
+  } else if (packageId === "D") {
+    return "Assets/image-d.jpg";
+  }
+  return ""; // Return an empty string if no image is available for the packageId
+}
+
+function getOutlineColor(value) {
   if (value <= 20) {
     return "red";
   } else if (value >= 20 && value <= 40) {
@@ -135,6 +164,7 @@ function getBackgroundColor(value) {
   } else if (value >= 80) {
     return "red";
   }
+  return ""; // Return an empty string if no outline color is available
 }
 
 // Initial fetch and process
