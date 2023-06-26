@@ -1,3 +1,46 @@
+// Create a constructor function for the box object
+function Box(name, description, workload, socialcontact, profession) {
+  this.name = name;
+  this.description = description;
+  this.workload = workload;
+  this.socialcontact = socialcontact;
+  this.profession = profession;
+}
+
+// Initialize the boxArray with some initial box objects
+const boxArray = [
+  new Box("testA", "x", 50, 20, "Profession A"),
+  new Box("testB", "x", 30, 40, "Profession B"),
+  new Box("testC", "x", 70, 60, "Profession C"),
+  new Box("testD", "x", 70, 60, "Profession C"),
+];
+
+// Set the draggable boxes using the boxArray
+function setDraggableBoxes() {
+  const backlogColumn = document.querySelector(".backlog-column");
+  backlogColumn.innerHTML = ""; // Clear the column before adding boxes
+
+  boxArray.forEach((box, index) => {
+    const draggableElement = document.createElement("div");
+    draggableElement.classList.add("backlog-box", `backlog-box${index + 1}`);
+    draggableElement.setAttribute("draggable", "true");
+    draggableElement.setAttribute("ondragstart", "drag(event)");
+    draggableElement.setAttribute("id", `backlog${index + 1}`);
+
+    // Create a paragraph element to display box attributes
+    const attributesParagraph = document.createElement("p");
+    attributesParagraph.innerHTML = `<b><font size="4">Name: ${box.name}</font></b><br><font size="3">Description: ${box.description}<br>Workload: ${box.workload}<br>Social Contact: ${box.socialcontact}<br>Profession: ${box.profession}</font>`;
+
+    // Append the attributes paragraph to the draggable element
+    draggableElement.appendChild(attributesParagraph);
+
+    backlogColumn.appendChild(draggableElement);
+  });
+}
+
+// Call the setDraggableBoxes function to initialize the draggable boxes
+setDraggableBoxes();
+
 function allowDrop(event) {
   event.preventDefault();
   event.target.classList.add("highlight");
@@ -6,7 +49,6 @@ function allowDrop(event) {
 function drag(event) {
   event.dataTransfer.setData("text/plain", event.target.id);
 }
-
 function drop(event) {
   event.preventDefault();
   event.target.classList.remove("highlight");
@@ -26,6 +68,17 @@ function drop(event) {
     event.target.classList.contains("backlog-column");
 
   if (isDropAllowed && isTargetColumn) {
+    // Create a new box object with desired attributes
+    const newBox = new Box(
+      draggableElement.getAttribute("data-workload"),
+      draggableElement.getAttribute("data-socialcontact"),
+      draggableElement.getAttribute("data-type"),
+      draggableElement.getAttribute("data-profession")
+    );
+
+    // Add the new box object to the boxArray
+    boxArray.push(newBox);
+
     event.target.appendChild(draggableElement);
     draggableElement.setAttribute("draggable", "true");
     draggableElement.classList.remove("dropped-box");
@@ -38,7 +91,7 @@ function fetchAndProcessCrewPackages() {
   fetch("/crewPackage")
     .then((res) => res.json())
     .then((jsonData) => {
-      console.log(jsonData); // Log the jsonData object to inspect its structure
+      //console.log(jsonData); // Log the jsonData object to inspect its structure
       processCrewPackages(jsonData);
     })
     .catch((error) => {
@@ -56,6 +109,8 @@ function processCrewPackages(crewPackage) {
   updateSummaryCircle(summaryCircleB, crewPackage?.B);
   updateSummaryCircle(summaryCircleC, crewPackage?.C);
   updateSummaryCircle(summaryCircleD, crewPackage?.D);
+
+  console.log(boxArray);
 }
 
 function updateSummaryCircle(element, summary) {
@@ -85,5 +140,5 @@ function getBackgroundColor(value) {
 // Initial fetch and process
 fetchAndProcessCrewPackages();
 
-// Set interval to fetch and process crew packages every 5 seconds
+// Set interval to fetch and process crew packages every 2 seconds
 setInterval(fetchAndProcessCrewPackages, 2000); // Adjust the interval duration as needed
