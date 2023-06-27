@@ -142,6 +142,34 @@ label {
   color: #fff;
 }
 
+/* CSS for the gratitude input box and button */
+.gratitude-container {
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.input-box {
+  width: 20%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 5px;
+}
+
+.button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
 .summary-icons {
   display: flex;
   flex-direction: column;

@@ -40,8 +40,8 @@ document.addEventListener("DOMContentLoaded", function () {
       );
 
       // Update the summary value and circle
-      summaryValue.textContent = "Summary: " + summary;
-      summaryCircle.textContent = summary;
+      //  summaryValue.textContent = "Summary: " + summary;
+      summaryCircle.textContent = "Summary: " + summary;
 
       // Change the color of the summary circle
       if (summary <= 20) {
@@ -64,9 +64,9 @@ document.addEventListener("DOMContentLoaded", function () {
       const workValue = parseInt(workSlider.value);
 
       if (workValue <= 20) {
-        icons += "2less💼"; // Bored emoji
+        icons += "easy💼  "; // Bored emoji
       } else if (workValue >= 80) {
-        icons += "2much💼"; // Work symbol
+        icons += "hard💼  "; // Work symbol
       }
 
       // Socializing Slider Icons
@@ -74,9 +74,9 @@ document.addEventListener("DOMContentLoaded", function () {
       const socializingValue = parseInt(socializingSlider.value);
 
       if (socializingValue <= 20) {
-        icons += "❗️"; // Exclamation mark symbol
+        icons += "less👤  "; // Exclamation mark symbol
       } else if (socializingValue >= 80) {
-        icons += "❓"; // Question mark symbol
+        icons += "more👤  "; // Question mark symbol
       }
 
       summaryIcons.innerHTML = icons;
