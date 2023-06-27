@@ -60,8 +60,8 @@ function drop(event) {
   const timestamp =
     event.target.parentNode.querySelector(".timestamp").textContent;
   const isDropAllowed =
-    timestamp === "9:00 - 12:00" ||
-    timestamp === "14:00 - 17:00" ||
+    timestamp === "Pre-Noon (8:05 - ca. 14:30)" ||
+    timestamp === "Post-Noon (ca. 14:30 - 17:00)" ||
     event.target.classList.contains("backlog-column");
   const isTargetColumn =
     event.target.classList.contains("droppable-column") ||
