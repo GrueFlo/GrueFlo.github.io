@@ -1,5 +1,4 @@
-// Create a constructor function for the box object
-function Box(name, description, workload, socialcontact, profession) {
+function Box(name, description, workload, socialcontact) {
   this.name = name;
   this.description = description;
   this.workload = workload;
@@ -8,17 +7,16 @@ function Box(name, description, workload, socialcontact, profession) {
 
 // Initialize the boxArray with some initial box objects
 const boxArray = [
-  new Box("8:25-11:25 - Electromagnetic Levitator R&R", "👤👤  💼💼", 90, 70),
-  new Box("8:25-11:25 - Electromagnetic Levitator R&R", "👤👤  💼💼", 90, 70),
+  new Box("8:25-11:25 - Electromagnetic Levitator R&R", "👤👤👤  💼💼", 80, 90),
+  new Box("8:25-11:25 - Electromagnetic Levitator R&R", "👤👤👤  💼💼", 80, 90),
   new Box(
     "8:25-11:20 - MARES Research Preperation & Exercise",
-    "👤 💼💼",
-    70,
-    30
+    "👤👤 💼💼",
+    50,
+    50
   ),
-  new Box("8:25-11:00 - GRIP Preperation & Experiment", "👤 💼", 40, 10),
+  new Box("8:25-11:00 - GRIP Preperation & Experiment", "👤 💼", 15, 15),
 ];
-
 // Set the draggable boxes using the boxArray
 function setDraggableBoxes() {
   const backlogColumn = document.querySelector(".backlog-column");
@@ -32,22 +30,13 @@ function setDraggableBoxes() {
     draggableElement.setAttribute("id", `backlog${index + 1}`);
 
     // Create a paragraph element to display box attributes
-    // Create a paragraph element to display box attributes
     const attributesParagraph = document.createElement("p");
-    attributesParagraph.innerHTML = `<b><font size="2">${box.name}</font></b><br><font size="1">Description: ${box.description}<br>Workload: ${box.workload}<br>Social Contact: ${box.socialcontact}<br><b><span id="recommendation"></span></font>`;
-
-    // Append the attributes paragraph to the draggable element
-    draggableElement.appendChild(attributesParagraph);
+    attributesParagraph.innerHTML = `<b><font size="2">${box.name}</font></b><br><font size="1">Description: ${box.description}<br>Workload: ${box.workload}<br>Social Contact: ${box.socialcontact}<br><b><span class="recommendation"></span></font>`;
 
     // Append the attributes paragraph to the draggable element
     draggableElement.appendChild(attributesParagraph);
 
     // Add recommendation element within the backlog-box1 element
-    if (index === 0) {
-      const recommendationElement = document.createElement("div");
-      recommendationElement.setAttribute("id", "recommendation");
-      draggableElement.appendChild(recommendationElement);
-    }
 
     backlogColumn.appendChild(draggableElement);
   });
@@ -85,9 +74,10 @@ function drop(event) {
   if (isDropAllowed && isTargetColumn) {
     // Create a new box object with desired attributes
     const newBox = new Box(
-      draggableElement.getAttribute("data-workload"),
-      draggableElement.getAttribute("data-socialcontact"),
-      draggableElement.getAttribute("data-type")
+      draggableElement.getAttribute("data-name"),
+      draggableElement.getAttribute("data-description"),
+      parseInt(draggableElement.getAttribute("data-workload")),
+      parseInt(draggableElement.getAttribute("data-socialcontact"))
     );
 
     // Add the new box object to the boxArray
@@ -124,47 +114,57 @@ function processCrewPackages(crewPackage) {
   updateSummaryCircle(summaryCircleC, crewPackage?.C, "C");
   updateSummaryCircle(summaryCircleD, crewPackage?.D, "D");
 
-  const bestCrewMember = getBestCrewMember(crewPackage);
-  if (bestCrewMember) {
-    displayRecommendation(bestCrewMember);
-  }
+  const bestCrewMembers = getBestCrewMembers(crewPackage);
 
+  const recommendationElements = document.querySelectorAll(".recommendation");
+
+  recommendationElements.forEach((element, index) => {
+    if (bestCrewMembers.length > index) {
+      const crewMember = bestCrewMembers[index];
+      displayRecommendation(element, crewMember);
+    }
+  });
   console.log(boxArray);
 }
 
-function getBestCrewMember(crewPackage) {
-  const differences = {}; // Object to store the differences in workload and social contact values
+function getBestCrewMembers(crewPackage) {
+  const bestCrewMembers = [];
 
-  // Calculate the differences between each crew member and the box values
-  for (const member in crewPackage) {
-    const package = crewPackage[member];
-    const workloadDiff = Math.abs(package.workload - boxArray[0].workload);
-    const socialContactDiff = Math.abs(
-      package.socialcontact - boxArray[0].socialcontact
-    );
-    differences[member] = workloadDiff + socialContactDiff;
-  }
+  boxArray.forEach((box) => {
+    const differences = {}; // Object to store the differences in workload and social contact values
 
-  // Find the crew member with the minimum difference
-  let bestCrewMember = null;
-  let minDifference = Infinity;
-  for (const member in differences) {
-    if (differences[member] < minDifference) {
-      minDifference = differences[member];
-      bestCrewMember = member;
+    // Calculate the differences between each crew member and the box values
+    for (const member in crewPackage) {
+      const package = crewPackage[member];
+      const workloadDiff = Math.abs(package.workload - box.workload);
+      const socialContactDiff = Math.abs(
+        package.socialcontact - box.socialcontact
+      );
+      differences[member] = workloadDiff + socialContactDiff;
     }
-  }
 
-  return bestCrewMember;
+    // Find the crew member with the minimum difference
+    let bestCrewMember = null;
+    let minDifference = Infinity;
+    for (const member in differences) {
+      if (differences[member] < minDifference) {
+        minDifference = differences[member];
+        bestCrewMember = member;
+      }
+    }
+
+    bestCrewMembers.push(bestCrewMember);
+  });
+
+  return bestCrewMembers;
 }
 
-function displayRecommendation(crewMember) {
+function displayRecommendation(element, crewMember) {
   // Update the recommendation display with the best crew member
-  const recommendationElement = document.getElementById("recommendation");
-  if (recommendationElement) {
-    recommendationElement.textContent = `Recommendation: ${crewMember}`;
+  if (element) {
+    element.textContent = `Recommendation: ${crewMember}`;
   } else {
-    console.error("Error: recommendationElement not found.");
+    console.error("Error: recommendation element not found.");
   }
 }
 
