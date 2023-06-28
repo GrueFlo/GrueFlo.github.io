@@ -2,10 +2,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 
 let crewPackage = {
-  A: null,
-  B: null,
-  C: null,
-  D: null,
+  Gerst: null,
+  Wiseman: null,
+  Wilmore: null,
+  Serova: null,
 };
 
 const app = express();
@@ -15,7 +15,7 @@ app.use(express.static("Group-Log/"));
 
 app.post("/FlashLogA", (req, res) => {
   const jsonData = req.body;
-  crewPackage.A = jsonData;
+  crewPackage.Gerst = jsonData;
 
   //console.log(jsonData); // Do whatever you want with the received JSON data
 
@@ -25,7 +25,7 @@ app.post("/FlashLogA", (req, res) => {
 
 app.post("/FlashLogB", (req, res) => {
   const jsonData = req.body;
-  crewPackage.B = jsonData;
+  crewPackage.Wiseman = jsonData;
 
   //console.log(jsonData); // Do whatever you want with the received JSON data
 
@@ -35,7 +35,7 @@ app.post("/FlashLogB", (req, res) => {
 
 app.post("/FlashLogC", (req, res) => {
   const jsonData = req.body;
-  crewPackage.C = jsonData;
+  crewPackage.Wilmore = jsonData;
 
   // console.log(jsonData); // Do whatever you want with the received JSON data
 
@@ -45,7 +45,7 @@ app.post("/FlashLogC", (req, res) => {
 
 app.post("/FlashLogD", (req, res) => {
   const jsonData = req.body;
-  crewPackage.D = jsonData;
+  crewPackage.Serova = jsonData;
 
   // console.log(jsonData); // Do whatever you want with the received JSON data
 

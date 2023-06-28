@@ -19,15 +19,15 @@ document.addEventListener("DOMContentLoaded", function () {
       const min = parseInt(slider.min);
       const max = parseInt(slider.max);
 
-      if (value <= 20) {
+      if (value <= 15) {
         sliderCircle.style.backgroundColor = "red";
-      } else if (value >= 20 && value <= 40) {
+      } else if (value >= 15 && value <= 35) {
         sliderCircle.style.backgroundColor = "orange";
-      } else if (value >= 40 && value <= 60) {
+      } else if (value >= 35 && value <= 65) {
         sliderCircle.style.backgroundColor = "green";
-      } else if (value >= 60 && value <= 80) {
+      } else if (value >= 65 && value <= 85) {
         sliderCircle.style.backgroundColor = "orange";
-      } else if (value >= 80) {
+      } else if (value >= 85) {
         sliderCircle.style.backgroundColor = "red";
       }
 
@@ -44,15 +44,15 @@ document.addEventListener("DOMContentLoaded", function () {
       summaryCircle.textContent = "Summary: " + summary;
 
       // Change the color of the summary circle
-      if (summary <= 20) {
+      if (summary <= 15) {
         summaryCircle.style.backgroundColor = "red";
-      } else if (summary >= 20 && summary <= 40) {
+      } else if (summary >= 15 && summary <= 35) {
         summaryCircle.style.backgroundColor = "orange";
-      } else if (summary >= 40 && summary <= 60) {
+      } else if (summary >= 35 && summary <= 65) {
         summaryCircle.style.backgroundColor = "green";
-      } else if (summary >= 60 && summary <= 80) {
+      } else if (summary >= 65 && summary <= 85) {
         summaryCircle.style.backgroundColor = "orange";
-      } else if (summary >= 80) {
+      } else if (summary >= 15) {
         summaryCircle.style.backgroundColor = "red";
       }
 

@@ -12,15 +12,25 @@ function Box(name, description, workload, socialcontact) {
 
 // Initialize the boxArray with some initial box objects
 const boxArray = [
-  new Box("8:25-11:25 - Electromagnetic Levitator R&R", "👤👤👤  💼💼", 80, 90),
-  new Box("8:25-11:25 - Electromagnetic Levitator R&R", "👤👤👤  💼💼", 80, 90),
+  new Box(
+    "8:25-11:25 - Electromagnetic Levitator R&R",
+    "👤👤👤  💼💼💼",
+    90,
+    90
+  ),
+  new Box(
+    "8:25-11:25 - Electromagnetic Levitator R&R",
+    "👤👤👤  💼💼💼",
+    90,
+    90
+  ),
   new Box(
     "8:25-11:20 - MARES Research Preperation & Exercise",
-    "👤👤 💼💼",
-    50,
+    "👤👤 💼",
+    10,
     50
   ),
-  new Box("8:25-11:00 - GRIP Preperation & Experiment", "👤 💼", 15, 15),
+  new Box("8:25-11:00 - GRIP Preperation & Experiment", "👤 💼💼", 75, 10),
 ];
 
 function fetchAndProcessCrewPackages() {
@@ -44,10 +54,10 @@ function processCrewPackages(crewPackage) {
   const summaryCircleC = document.getElementById("summaryValueC");
   const summaryCircleD = document.getElementById("summaryValueD");
 
-  updateSummaryCircle(summaryCircleA, crewPackage?.A, "A");
-  updateSummaryCircle(summaryCircleB, crewPackage?.B, "B");
-  updateSummaryCircle(summaryCircleC, crewPackage?.C, "C");
-  updateSummaryCircle(summaryCircleD, crewPackage?.D, "D");
+  updateSummaryCircle(summaryCircleA, crewPackage?.Gerst, "A");
+  updateSummaryCircle(summaryCircleB, crewPackage?.Wiseman, "B");
+  updateSummaryCircle(summaryCircleC, crewPackage?.Wilmore, "C");
+  updateSummaryCircle(summaryCircleD, crewPackage?.Serova, "D");
 }
 
 function initializeApp() {
@@ -233,15 +243,15 @@ function getImageUrl(packageId) {
 }
 
 function getOutlineColor(value) {
-  if (value <= 20) {
+  if (value <= 15) {
     return "red";
-  } else if (value >= 20 && value <= 40) {
+  } else if (value >= 15 && value <= 35) {
     return "orange";
-  } else if (value >= 40 && value <= 60) {
+  } else if (value >= 35 && value <= 65) {
     return "green";
-  } else if (value >= 60 && value <= 80) {
+  } else if (value >= 65 && value <= 85) {
     return "orange";
-  } else if (value >= 80) {
+  } else if (value >= 85) {
     return "red";
   }
   return ""; // Return an empty string if no outline color is available
