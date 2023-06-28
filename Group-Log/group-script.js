@@ -51,8 +51,11 @@ function processCrewPackages(crewPackage) {
 }
 
 function initializeApp() {
-  setDraggableBoxes();
   updateRecommendations(crewPackage);
+  setDraggableBoxes();
+  initializeApp = () => {
+    updateRecommendations(crewPackage);
+  }; // Overwrite the initializeApp function to do nothing on subsequent calls
 }
 
 function setDraggableBoxes() {
@@ -69,7 +72,7 @@ function setDraggableBoxes() {
     draggableElement.dataset.recommendation = box.recommendation; // Update the data-recommendation attribute
 
     const attributesParagraph = document.createElement("p");
-    attributesParagraph.innerHTML = `<b><font size="2">${box.name}</font></b><br><font size="1">Description: ${box.description}<br>Workload: ${box.workload}<br>Social Contact: ${box.socialcontact}</font><br><b><span class="recommendation">${box.recommendation}</span></b></p>`; // Display the recommendation
+    attributesParagraph.innerHTML = `<b><font size="2">${box.name}</font></b><br><font size="1">Description: ${box.description}<br>Workload: ${box.workload}<br>Social Contact: ${box.socialcontact}<br><b>Recommendation: <span class="recommendation">${box.recommendation}</span></b></font></p>`; // Display the recommendation
 
     draggableElement.appendChild(attributesParagraph);
     backlogColumn.appendChild(draggableElement);
@@ -77,7 +80,6 @@ function setDraggableBoxes() {
 }
 
 // Call the setDraggableBoxes function to initialize the draggable boxes
-setDraggableBoxes();
 
 function allowDrop(event) {
   event.preventDefault();
@@ -91,6 +93,9 @@ function drag(event) {
 function drop(event) {
   event.preventDefault();
   event.target.classList.remove("highlight");
+
+  console.log("drop function called");
+  console.log("event:", event);
 
   const data = event.dataTransfer.getData("text/plain");
   const draggableElement = document.getElementById(data);
@@ -123,10 +128,13 @@ function drop(event) {
     draggableElement.style.backgroundColor = "";
   }
 
-  console.log(boxArray);
+  console.log("boxArray:", boxArray);
 }
 
 function updateRecommendations(crewPackage) {
+  //console.log("updateRecommendations function called");
+  //  console.log("crewPackage:", crewPackage);
+
   if (!crewPackage) {
     console.error("Error: crewPackage is null.");
     return;
