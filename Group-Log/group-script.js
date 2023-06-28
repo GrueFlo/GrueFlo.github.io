@@ -17,6 +17,7 @@ const boxArray = [
   ),
   new Box("8:25-11:00 - GRIP Preperation & Experiment", "👤 💼", 15, 15),
 ];
+
 // Set the draggable boxes using the boxArray
 function setDraggableBoxes() {
   const backlogColumn = document.querySelector(".backlog-column");
@@ -27,7 +28,7 @@ function setDraggableBoxes() {
     draggableElement.classList.add("backlog-box", `backlog-box${index + 1}`);
     draggableElement.setAttribute("draggable", "true");
     draggableElement.setAttribute("ondragstart", "drag(event)");
-    draggableElement.setAttribute("id", `backlog${index + 1}`);
+    draggableElement.setAttribute("id", `backlog${index + 1}`); // Update the id attribute
 
     // Create a paragraph element to display box attributes
     const attributesParagraph = document.createElement("p");
@@ -53,6 +54,7 @@ function allowDrop(event) {
 function drag(event) {
   event.dataTransfer.setData("text/plain", event.target.id);
 }
+
 function drop(event) {
   event.preventDefault();
   event.target.classList.remove("highlight");
@@ -72,16 +74,14 @@ function drop(event) {
     event.target.classList.contains("backlog-column");
 
   if (isDropAllowed && isTargetColumn) {
-    // Create a new box object with desired attributes
-    const newBox = new Box(
-      draggableElement.getAttribute("data-name"),
-      draggableElement.getAttribute("data-description"),
-      parseInt(draggableElement.getAttribute("data-workload")),
-      parseInt(draggableElement.getAttribute("data-socialcontact"))
-    );
+    const boxIndex = parseInt(draggableElement.id.replace("backlog", "")) - 1;
+    const box = boxArray[boxIndex];
 
-    // Add the new box object to the boxArray
-    boxArray.push(newBox);
+    // Update the attributes of the draggable element
+    draggableElement.setAttribute("data-name", box.name);
+    draggableElement.setAttribute("data-description", box.description);
+    draggableElement.setAttribute("data-workload", box.workload);
+    draggableElement.setAttribute("data-socialcontact", box.socialcontact);
 
     event.target.appendChild(draggableElement);
     draggableElement.setAttribute("draggable", "true");
