@@ -1,13 +1,14 @@
+let recommendationsArray = []; // Store the recommendations separately
+let crewPackage = null;
+let shouldRecreateBoxes = true;
+
 function Box(name, description, workload, socialcontact) {
   this.name = name;
   this.description = description;
   this.workload = workload;
   this.socialcontact = socialcontact;
-  this.recommendation = null; // Initialize recommendation property as null
+  this.recommendation = ""; // Initialize recommendation property as an empty string
 }
-
-let recommendationsArray = []; // Store the recommendations separately
-let crewPackage = null;
 
 // Initialize the boxArray with some initial box objects
 const boxArray = [
@@ -22,7 +23,38 @@ const boxArray = [
   new Box("8:25-11:00 - GRIP Preperation & Experiment", "👤 💼", 15, 15),
 ];
 
-// Set the draggable boxes using the boxArray
+function fetchAndProcessCrewPackages() {
+  fetch("/crewPackage")
+    .then((res) => res.json())
+    .then((jsonData) => {
+      //console.log(jsonData); // Log the jsonData object to inspect its structure
+      crewPackage = jsonData;
+
+      processCrewPackages(jsonData);
+      initializeApp();
+    })
+    .catch((error) => {
+      console.log(error); // Handle any errors that occur during the fetch request
+    });
+}
+
+function processCrewPackages(crewPackage) {
+  const summaryCircleA = document.getElementById("summaryValueA");
+  const summaryCircleB = document.getElementById("summaryValueB");
+  const summaryCircleC = document.getElementById("summaryValueC");
+  const summaryCircleD = document.getElementById("summaryValueD");
+
+  updateSummaryCircle(summaryCircleA, crewPackage?.A, "A");
+  updateSummaryCircle(summaryCircleB, crewPackage?.B, "B");
+  updateSummaryCircle(summaryCircleC, crewPackage?.C, "C");
+  updateSummaryCircle(summaryCircleD, crewPackage?.D, "D");
+}
+
+function initializeApp() {
+  setDraggableBoxes();
+  updateRecommendations(crewPackage);
+}
+
 function setDraggableBoxes() {
   const backlogColumn = document.querySelector(".backlog-column");
   backlogColumn.innerHTML = ""; // Clear the column before adding boxes
@@ -32,13 +64,13 @@ function setDraggableBoxes() {
     draggableElement.classList.add("backlog-box", `backlog-box${index + 1}`);
     draggableElement.setAttribute("draggable", "true");
     draggableElement.setAttribute("ondragstart", "drag(event)");
-    draggableElement.setAttribute("id", `backlog${index + 1}`); // Update the id attribute
+    draggableElement.setAttribute("id", `backlog${index + 1}`);
 
-    // Create a paragraph element to display box attributes
+    draggableElement.dataset.recommendation = box.recommendation; // Update the data-recommendation attribute
+
     const attributesParagraph = document.createElement("p");
-    attributesParagraph.innerHTML = `<b><font size="2">${box.name}</font></b><br><font size="1">Description: ${box.description}<br>Workload: ${box.workload}<br>Social Contact: ${box.socialcontact}<br><b><span class="recommendation"></span></font>`;
+    attributesParagraph.innerHTML = `<b><font size="2">${box.name}</font></b><br><font size="1">Description: ${box.description}<br>Workload: ${box.workload}<br>Social Contact: ${box.socialcontact}</font><br><b><span class="recommendation">${box.recommendation}</span></b></p>`; // Display the recommendation
 
-    // Append the attributes paragraph to the draggable element
     draggableElement.appendChild(attributesParagraph);
     backlogColumn.appendChild(draggableElement);
   });
@@ -77,8 +109,6 @@ function drop(event) {
   if (isDropAllowed && isTargetColumn) {
     const boxIndex = parseInt(draggableElement.id.replace("backlog", "")) - 1;
     const box = boxArray[boxIndex];
-    const bestCrewMembers = getBestCrewMembers(crewPackage);
-    recommendationsArray = bestCrewMembers;
 
     // Update the attributes of the draggable element
     draggableElement.setAttribute("data-name", box.name);
@@ -91,50 +121,33 @@ function drop(event) {
     draggableElement.classList.remove("dropped-box");
     draggableElement.classList.add("backlog-box");
     draggableElement.style.backgroundColor = "";
-
-    // Only update the recommendation if it's not already set
-    if (!box.recommendation) {
-      box.recommendation = bestCrewMembers[boxIndex]; // Set the recommendation for the box
-      const recommendationElement =
-        draggableElement.querySelector(".recommendation");
-      displayRecommendation(recommendationElement, box);
-    }
   }
+
   console.log(boxArray);
 }
 
-function fetchAndProcessCrewPackages() {
-  fetch("/crewPackage")
-    .then((res) => res.json())
-    .then((jsonData) => {
-      //console.log(jsonData); // Log the jsonData object to inspect its structure
-      crewPackage = jsonData;
-      processCrewPackages(jsonData);
-    })
-    .catch((error) => {
-      console.log(error); // Handle any errors that occur during the fetch request
-    });
-}
+function updateRecommendations(crewPackage) {
+  if (!crewPackage) {
+    console.error("Error: crewPackage is null.");
+    return;
+  }
 
-function processCrewPackages(crewPackage) {
-  const summaryCircleA = document.getElementById("summaryValueA");
-  const summaryCircleB = document.getElementById("summaryValueB");
-  const summaryCircleC = document.getElementById("summaryValueC");
-  const summaryCircleD = document.getElementById("summaryValueD");
+  boxArray.forEach((box, index) => {
+    const bestCrewMembers = getBestCrewMembers(crewPackage);
+    const recommendationElement = document.querySelector(
+      `.backlog-box${index + 1} .recommendation`
+    );
 
-  updateSummaryCircle(summaryCircleA, crewPackage?.A, "A");
-  updateSummaryCircle(summaryCircleB, crewPackage?.B, "B");
-  updateSummaryCircle(summaryCircleC, crewPackage?.C, "C");
-  updateSummaryCircle(summaryCircleD, crewPackage?.D, "D");
-
-  const bestCrewMembers = getBestCrewMembers(crewPackage);
-  recommendationsArray = bestCrewMembers; // Store the recommendations in the separate array
-
-  const recommendationElements = document.querySelectorAll(".recommendation");
-  recommendationElements.forEach((element, index) => {
-    if (recommendationsArray.length > index) {
-      const box = boxArray[index];
-      displayRecommendation(element, box);
+    if (recommendationElement) {
+      if (
+        !box.recommendation ||
+        box.recommendation !== bestCrewMembers[index]
+      ) {
+        box.recommendation = bestCrewMembers[index];
+        recommendationElement.textContent = `Recommendation: ${box.recommendation}`;
+      }
+    } else {
+      console.error("Error: recommendation element not found.");
     }
   });
 }
@@ -172,14 +185,6 @@ function getBestCrewMembers(crewPackage) {
   return bestCrewMembers;
 }
 
-function displayRecommendation(element, box) {
-  // Update the recommendation display with the best crew member
-  if (element) {
-    element.textContent = `Recommendation: ${box.recommendation}`;
-  } else {
-    console.error("Error: recommendation element not found.");
-  }
-}
 function updateSummaryCircle(element, summary, packageId) {
   element.textContent = `Summary ${packageId}: ${summary?.mood || ""}`;
 
