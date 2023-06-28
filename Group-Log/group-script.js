@@ -4,15 +4,19 @@ function Box(name, description, workload, socialcontact, profession) {
   this.description = description;
   this.workload = workload;
   this.socialcontact = socialcontact;
-  this.profession = profession;
 }
 
 // Initialize the boxArray with some initial box objects
 const boxArray = [
-  new Box("testA", "x", 50, 20, "Profession A"),
-  new Box("testB", "x", 30, 40, "Profession B"),
-  new Box("testC", "x", 70, 60, "Profession C"),
-  new Box("testD", "x", 70, 60, "Profession C"),
+  new Box("8:25-11:25 - Electromagnetic Levitator R&R", "👤👤  💼💼", 90, 70),
+  new Box("8:25-11:25 - Electromagnetic Levitator R&R", "👤👤  💼💼", 90, 70),
+  new Box(
+    "8:25-11:20 - MARES Research Preperation & Exercise",
+    "👤 💼💼",
+    70,
+    30
+  ),
+  new Box("8:25-11:00 - GRIP Preperation & Experiment", "👤 💼", 40, 10),
 ];
 
 // Set the draggable boxes using the boxArray
@@ -29,7 +33,7 @@ function setDraggableBoxes() {
 
     // Create a paragraph element to display box attributes
     const attributesParagraph = document.createElement("p");
-    attributesParagraph.innerHTML = `<b><font size="4">Name: ${box.name}</font></b><br><font size="3">Description: ${box.description}<br>Workload: ${box.workload}<br>Social Contact: ${box.socialcontact}<br>Profession: ${box.profession}</font>`;
+    attributesParagraph.innerHTML = `<b><font size="2">${box.name}</font></b><br><font size="1">Description: ${box.description}<br>Workload: ${box.workload}<br>Social Contact: ${box.socialcontact}<br></font>`;
 
     // Append the attributes paragraph to the draggable element
     draggableElement.appendChild(attributesParagraph);
@@ -60,7 +64,7 @@ function drop(event) {
   const timestamp =
     event.target.parentNode.querySelector(".timestamp").textContent;
   const isDropAllowed =
-    timestamp === "Pre-Noon (8:05 - ca. 14:30)" ||
+    timestamp === "Pre-Noon (8:25 - ca. 11:25)" ||
     timestamp === "Post-Noon (ca. 14:30 - 17:00)" ||
     event.target.classList.contains("backlog-column");
   const isTargetColumn =
@@ -72,8 +76,7 @@ function drop(event) {
     const newBox = new Box(
       draggableElement.getAttribute("data-workload"),
       draggableElement.getAttribute("data-socialcontact"),
-      draggableElement.getAttribute("data-type"),
-      draggableElement.getAttribute("data-profession")
+      draggableElement.getAttribute("data-type")
     );
 
     // Add the new box object to the boxArray

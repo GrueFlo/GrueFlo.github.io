@@ -81,7 +81,7 @@
               ondragstart="drag(event)"
               id="backlog1"
             >
-              <span class="icon">v</span>Work-Package 1
+              <span class="icon"></span>Work-Package 1
             </div>
             <div
               class="backlog-box backlog-box2"
@@ -89,7 +89,7 @@
               ondragstart="drag(event)"
               id="backlog2"
             >
-              <span class="icon">x</span>Work-Package 2
+              <span class="icon"></span>Work-Package 2
             </div>
             <div
               class="backlog-box backlog-box3"
@@ -97,7 +97,7 @@
               ondragstart="drag(event)"
               id="backlog3"
             >
-              <span class="icon">y</span>Work-Package 3
+              <span class="icon"></span>Work-Package 3
             </div>
             <div
               class="backlog-box backlog-box4"
@@ -113,31 +113,29 @@
           </td>
 
           <td>
-            <div class="backlog-box-empty">06:00-06:05: Reading Reminder</div>
-            <div class="backlog-box-empty">
-              6:05-06:20: HRF-Generic Sample Operations
-            </div>
-            <div class="backlog-box-empty">06:20-06:55: Post-sleep</div>
-            <div class="backlog-box-food">06:55-07:45: BREAKFAST</div>
+            <div class="backlog-box-empty-small">06:00-06:10: Morning Inspection</div>
+            <div class="backlog-box-empty-small">06:10-06:40: Post-sleep</div>
+            <div class="backlog-box-food">06:40-07:30: BREAKFAST</div>
+            <div class="backlog-box-empty-small">07:30-07:45: Work-Prep</div>
           </td>
 
           <td>
-            <div class="backlog-box-empty">06:05-06:10: Morning Inspection</div>
-            <div class="backlog-box-empty">06:10-06:40: Post-Sleep</div>
+            <div class="backlog-box-empty-small">06:05-06:10: Morning Inspection</div>
+            <div class="backlog-box-empty-small">06:10-06:40: Post-Sleep</div>
             <div class="backlog-box-food">06:40-07:30: BREAKFAST</div>
-            <div class="backlog-box-empty">07:30-07:45: Work-Prep</div>
+            <div class="backlog-box-empty-small">07:30-07:45: Work-Prep</div>
           </td>
           <td>
-            <div class="backlog-box-empty">06:00-06:10: Morning Inspection</div>
-            <div class="backlog-box-empty">06:10-06:40: Post Sleep</div>
+            <div class="backlog-box-empty-small">06:00-06:10: Morning Inspection</div>
+            <div class="backlog-box-empty-small">06:10-06:40: Post Sleep</div>
             <div class="backlog-box-food">06:40-07:30: BREAKFAST</div>
-            <div class="backlog-box-empty">07:30-07:45: Work-Prep</div>
+            <div class="backlog-box-empty-small">07:30-07:45: Work-Prep</div>
           </td>
           <td>
-            <div class="backlog-box-empty">06:00-06:10: Morning Inspection</div>
-            <div class="backlog-box-empty">06:10-06:40: Post Sleep</div>
+            <div class="backlog-box-empty-small">06:00-06:10: Morning Inspection</div>
+            <div class="backlog-box-empty-small">06:10-06:40: Post Sleep</div>
             <div class="backlog-box-food">06:40-07:30: BREAKFAST</div>
-            <div class="backlog-box-empty">07:30-07:45: Work-Prep</div>
+            <div class="backlog-box-empty-small">07:30-07:45: Work-Prep</div>
           </td>
         </tr>
         <tr>
@@ -154,94 +152,86 @@
 
         <tr>
           <td class="timeline-column timeline-row3">
-            <div class="timestamp">Pre-Noon (8:05 - ca. 14:30)</div>
+            <div class="timestamp">Pre-Noon (8:25 - ca. 11:25)</div>
           </td>
           <td
-            class="droppable-column"
-            ondrop="drop(event)"
-            ondragover="allowDrop(event)"
-          >
-            <div class="backlog-box-coop">
-              08:25-11:25 ТК 713 Descent OBT. Tagup with specialists
-            </div>
+          class="droppable-column"
+          ondrop="drop(event)"
+          ondragover="allowDrop(event)"
+        >             </td>
+        <td
+        class="droppable-column"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)"
+      >
+
+        </td>
+        <td
+        class="droppable-column"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)"
+      >
+
+        </td>
+        <td
+        class="droppable-column"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)"
+      >
+        </td>
+      </td>
+        </tr>
+
+        <tr>
+          <td class="timeline-column timeline-row3">
+            <div class="timestamp">Noon (11:25 - ca. 14:30)</div>
+          </td>
+          <td>
+
             <div class="backlog-box-health">
-              11:30-11:45: Private Medical Conference
+              11:25-11:45: Private Medical Conference
             </div>
-            <div class="backlog-box-empty">
-              11:45-12:00: BODYM - Body Measurments data collection
-            </div>
-              <div class="backlog-box-sport">12:00-13:30: ARED-Exercise</div>
+
+              <div class="backlog-box-sport">12:00-13:15: ARED-Exercise</div>
+              <div class="backlog-box-empty-big">
+                13:15-13:35: BODYM - Body Measurments data
+              </div>
               <div class="backlog-box-food">13:40-14:40: LUNCH</div>
             
           </td>
-
-          <td
-            class="droppable-column"
-            ondrop="drop(event)"
-            ondragover="allowDrop(event)"
-          >
-            <div class="backlog-box-coop">
-              08:25-11:25 ТК 713 Descent OBT. Tagup with specialists
-            </div>
-            <div class="backlog-box-sport">
+          <td>
+            <div class="backlog-box-health">
               11:25-11:35: SPRINT - Power up and Warm up
             </div>
-            <div class="backlog-box-empty">
+            <div class="backlog-box-empty-big">
               11:35-11:45: Rodent Research Experiment
             </div>
             <div class="backlog-box-sport">
-              12:00-13:10: SPRINT Experiment Ops
+              12:00-13:20: SPRINT Experiment Ops
             </div>
-            <div class="backlog-box-empty">
-              13:10-13:20: MARES - Vibration Isolation Frame Installation
-              Support
-            </div>
+
             <div class="backlog-box-food">13:40-14:40: LUNCH</div>
           </td>
           </td>
-          <td
-            class="droppable-column"
-            ondrop="drop(event)"
-            ondragover="allowDrop(event)"
-          >
-            <div class="backlog-box-empty">
-              08:05-08:25: Acoustic Dosimeter Ops
+<td>
+            <div class="backlog-box-sport">11:25-12:45: T2 Exercise </div>
+            <div class="backlog-box-empty-small">
+              12:45-13:00: COL - Clearing COL1D3 items
             </div>
-            <div class="backlog-box-sport">08:25-09:55: ARED Exercise</div>
-            <div class="backlog-box-empty">
-              09:55-10:40: MEDICAL CONTINGENCY OBT
-            </div>
-            <div class="backlog-box-sport">10:40-11:40: T2 Exercise</div>
-            <div class="backlog-box-empty">
-              11:50-12:05: COL - Clearing COL1D3 items
-            </div>
-            <div class="backlog-box-empty">
-              12:05-12:15: MARES - EPM RUDP Switch Off Verification
-            </div>
-            <div class="backlog-box-empty">
-              12:15-13:50: MARES - Battery Replacement
-            </div>
-            <div class="backlog-box-food">13:50-14:50: LUNCH</div>
+            <div class="backlog-box-sport">13:15-14:00: ARED Exercise</div>
+
+
+            <div class="backlog-box-food">14:00-15:00: LUNCH</div>
           </td>
-          <td
-            class="droppable-column"
-            ondrop="drop(event)"
-            ondragover="allowDrop(event)"
-          >
-            <div class="backlog-box-empty">08:05-08:25: Work Prep</div>
-            <div class="backlog-box-empty">
-              08:25-09:55: RS Lights Audit (SM, MRM1, MRM2, DC1)
+          <td>
+            <div class="backlog-box-sport">11:00-12:00: ARED Exercise</div>
+            <div class="backlog-box-empty-small">12:00-12:30: СОЖ Maintenance
             </div>
-            <div class="backlog-box-empty">
-              09:55-10:40: MEDICAL CONTINGENCY OBT
-            </div>
-            <div class="backlog-box-sport">10:45-12:00: ARED Exercise</div>
-            <div class="backlog-box-empty">12:00-12:40: СОЖ Maintenance</div>
-            <div class="backlog-box-empty">
-              12:40-13:00: Preparation for МО-21. Charging of Ekosfera Battery
-              Pack
-            </div>
+            <div class="backlog-box-empty-small">12:30-12:55: SDGR2. Crew OBT</div>
             <div class="backlog-box-food">13:00-14:00: LUNCH</div>
+            <div class="backlog-box-empty-big">
+              14:00-14:30: Preparation for МО-21. 
+            </div>
           </td>
         </tr>
      
@@ -249,125 +239,113 @@
           <td class="timeline-column timeline-row4">
             <div class="timestamp">Post-Noon (ca. 14:30 - 17:00)</div>
           </td>
-          <td
-            class="droppable-column"
-            ondrop="drop(event)"
-            ondragover="allowDrop(event)"
-          >
-            <div class="backlog-box-empty">
+          <td>
+            <div class="backlog-box-empty-small">
               14:40-14:45: Handover of detectors
             </div>
-            <div class="backlog-box-empty">
-              14:45-15:00: RADIN - Dosimeter Installation
+            <div class="backlog-box-empty-big">
+              14:45-15:20: RADIN - Dosimeter Installation
             </div>
-            <div class="backlog-box-empty">
-              15:10-15:20: AMINE - Screen Cleaning
+            <div class="backlog-box-empty-big">
+              15:25-15:50: AMINE - Screen Cleaning
             </div>
-            <div class="backlog-box-empty">
-              15:10-15:50: Crew Departure Prep
-            </div>
+
             <div class="backlog-box-sport">15:50-16:50: T2 Exercise</div>
-            <div class="backlog-box-empty">
-              16:50-17:05: MARES - Stowage Support
+            <div class="backlog-box-empty-small">
+              16:50-17:15: MARES - Stowage Support
             </div>
-            <div class="backlog-box-empty">17:05-17:35 Crew Departure Prep</div>
-            <div class="backlog-box-coop">
-              17:50-18:20: Ultrasound 2 - CMO Scanning OPS
+            <div class="backlog-box-empty-small">
+              17:15-18:00: Ultrasound 2 - CMO Scanning OPS
             </div>
-            <div class="backlog-box-empty">
-              18:20-18:30: MARES - EPM A31p Laptop Stowage
+            <div class="backlog-box-empty-small">
+              18:00-18:30: MARES - EPM A31p Laptop Stowage
             </div>
-            <div class="backlog-box-empty">
-              18:35-18:50: Installing Water Canister Bag for Crystall Experiment
+            <div class="backlog-box-empty-small">
+              18:35-18:50: Water Canister Bag for Crystall Experiment
             </div>
-            <div class="backlog-box-empty">
+            <div class="backlog-box-empty-small">
               18:55-19:05: Clean Bench (CB) Closeout Prep
             </div>
             
 
 
           </td>
-          <td
-            class="droppable-column"
-            ondrop="drop(event)"
-            ondragover="allowDrop(event)"
-          >
+          <td>
             <div class="backlog-box-health">
               14:45-15:00: Private Medical Conference
             </div>
             <div class="backlog-box-sport">15:30-16:50: ARED Exercise</div>
-            <div class="backlog-box-empty">
-              18:15-18:20: Space Headaches Weekly Questionnaire
-            </div>
-            <div class="backlog-box-empty">18:20-18:45: Evening Work prep</div>
-            <div class="backlog-box-empty">18:45-19:05: Pre-Sleep</div>
-            <div class="backlog-box-empty">
+            <div class="backlog-box-empty-big">
               16:55-18:15: SPRINT-PPFS - Equipment Stowage
             </div>
+            <div class="backlog-box-empty-big">
+              18:15-18:20: Space Headaches Weekly Questionnaire
+            </div>
+            <div class="backlog-box-empty-big">
+              18:20-18:50: SPRINT - Hardware Deactivation and Closeout
+            </div>
+            <div class="backlog-box-empty-big">18:50-18:55: Evening Work prep</div>
+            <div class="backlog-box-empty-big">18:55-19:05: Pre-Sleep</div>
+
             
 
           </td>
 
-          <td
-            class="droppable-column"
-            ondrop="drop(event)"
-            ondragover="allowDrop(event)"
-          >
-            <div class="backlog-box-empty">
+          <td>
+            <div class="backlog-box-empty-middle">
               14:50-15:55: MARES - Battery Status Monitoring
             </div>
-            <div class="backlog-box-empty">16:00-16:15: SDGR2. Crew OBT</div>
             <div class="backlog-box-health">
               16:15-16:30: Private Psychological Conference
             </div>
-            <div class="backlog-box-empty">
+            <div class="backlog-box-empty-middle">
               16:30-17:10: MARES - Disconnecting from PUI
             </div>
-            <div class="backlog-box-empty">
+            <div class="backlog-box-empty-big">
               17:10-17:40: Ultrasound 2 - Scanning
             </div>
-            <div class="backlog-box-empty">
+            <div class="backlog-box-empty-small">
               17:40-17:50: Ultrasound 2 - Ultrasound - Scanning Prep
             </div>
-            <div class="backlog-box-coop">
+            <div class="backlog-box-empty-big">
               17:50-18:20: Ultrasound 2 - Scanning
             </div>
-            <div class="backlog-box-empty">
+            <div class="backlog-box-empty-small">
               18:20-18:25: Ultrasound Scanning
             </div>
-            <div class="backlog-box-empty">
+            <div class="backlog-box-empty-small">
               18:25-18:35: Ultrasound Data Export
             </div>
-            <div class="backlog-box-empty">
-              18:50-19:05: COL - Re-stow items into COL1D3 rack
+            <div class="backlog-box-empty-small">
+              18:40-19:05: Ultrasound - Stowage
             </div>
+
 
 
           </td>
-          <td
-            class="droppable-column"
-            ondrop="drop(event)"
-            ondragover="allowDrop(event)"
-          >
-            <div class="backlog-box-empty">
-              14:00-14:40: MATRYOSHKA-R. Gathering and Initialization of
-              Bubble-Dosimeter Detectors. Tagup with specialists as necessary
+          <td>
+            <div class="backlog-box-empty-big">
+              14:40-14:50: MATRYOSHKA-R. Gathering and Initialization of
+              Bubble-Dosimeter Detectors. 
             </div>
-            <div class="backlog-box-empty">
-              14:40-14:45: MATRYOSHKA-R. Handover of BUBBLE-dosimeters to USOS
+            <div class="backlog-box-empty-big">
+              14:50-14:55: MATRYOSHKA-R. Handover of BUBBLE-dosimeters to USOS
             </div>
-            <div class="backlog-box-empty">
-              14:45-15:30: MATRYOSHKA-R. BUBBLE-dosimeter detector
-              initialization and deployment for exposure. Tagup with specialists
+            <div class="backlog-box-empty-big">
+              14:55-15:30: MATRYOSHKA-R. BUBBLE-dosimeter detector
+              initialization and deployment for exposure. 
               as necessary
             </div>
-            <div class="backlog-box-empty">
+            <div class="backlog-box-empty-big">
               15:30-17:30: ТКГ 424 (DC1) Transfers and IMS Ops
             </div>
             <div class="backlog-box-sport">
               17:30-18:45: БД-2 Exercise, Day 4
             </div>
-            <div class="backlog-box-empty">18:45-19:05: Evening Work Prep</div>
+            <div class="backlog-box-empty-big">18:50-18:55: Evening Work Prep</div>
+            <div class="backlog-box-empty-small">
+              18:55-19:05: COL - Re-stow items into COL1D3 rack
+            </div>
           </td>
         </tr>
  
@@ -377,55 +355,48 @@
           </td>
           <td>
             <div class="backlog-box-all">
-              Daily-Planning Conference & Flight Director / ISS Crew Tagup
+              Daily-Planning & Crew Tagup
             </div>
           </td>
 
           <td>
             <div class="backlog-box-all">
-              Daily-Planning Conference & Flight Director / ISS Crew Tagup
+              Daily-Planning & Crew Tagup
             </div>
           </td>
 
           <td>
             <div class="backlog-box-all">
-              Daily-Planning Conference & Flight Director / ISS Crew Tagup
+              Daily-Planning & Crew Tagup
             </div>
           </td>
           <td>
             <div class="backlog-box-all">
-              Daily-Planning Conference & Flight Director / ISS Crew Tagup
+              Daily-Planning & Crew Tagup
             </div>
           </td>
         </tr>
         <tr>
           <td class="timeline-column timeline-row11">
-            <div class="timestamp">19:45 - 21:30</div>
+            <div class="timestamp">Evenings (19:45 - 21:30)</div>
           </td>
           <td>
-            <div class="backlog-box-empty">
-              19:45-19:55: Closing USOS Window Shutters
-            </div>
-            <div class="backlog-box-food">19:55-21:30: Pre-Sleep</div>
+            <div class="backlog-box-coop">19:45-20:30: Team-Dinner</div>
+            <div class="backlog-box-food">20:45-21:30: Pre-Sleep</div>
           </td>
 
           <td>
-            <div class="backlog-box-empty">
-              19:45-19:50: SPRINT - Hardware Deactivation and Closeout
-            </div>
-            <div class="backlog-box-food">19:50-21:30: Pre-Sleep</div>
+            <div class="backlog-box-coop">19:45-20:30: Team-Dinner</div>
+            <div class="backlog-box-food">20:45-21:30: Pre-Sleep</div>
           </td>
 
           <td>
-            <div class="backlog-box-empty">
-              19:45-19:55: Terminate EMU METOX Regeneration
-            </div>
-            <div class="backlog-box-empty">
-              19:55-20:00: Ultrasound - Stowage
-            </div>
-            <div class="backlog-box-food">20:00-21:30: Pre-Sleep</div>
+            <div class="backlog-box-coop">19:45-20:30: Team-Dinner</div>
+            <div class="backlog-box-food">20:45-21:30: Pre-Sleep</div>
           </td>
-          <td><div class="backlog-box-food">19:45-21:30: Pre-Sleep</div></td>
+          <td>
+            <div class="backlog-box-coop">19:45-20:30: Team-Dinner</div>
+            <div class="backlog-box-food">20:45-21:30: Pre-Sleep</div></td>
         </tr>
       </table>
     </div>
