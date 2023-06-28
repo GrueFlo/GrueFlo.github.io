@@ -32,11 +32,22 @@ function setDraggableBoxes() {
     draggableElement.setAttribute("id", `backlog${index + 1}`);
 
     // Create a paragraph element to display box attributes
+    // Create a paragraph element to display box attributes
     const attributesParagraph = document.createElement("p");
-    attributesParagraph.innerHTML = `<b><font size="2">${box.name}</font></b><br><font size="1">Description: ${box.description}<br>Workload: ${box.workload}<br>Social Contact: ${box.socialcontact}<br></font>`;
+    attributesParagraph.innerHTML = `<b><font size="2">${box.name}</font></b><br><font size="1">Description: ${box.description}<br>Workload: ${box.workload}<br>Social Contact: ${box.socialcontact}<br><b><span id="recommendation"></span></font>`;
 
     // Append the attributes paragraph to the draggable element
     draggableElement.appendChild(attributesParagraph);
+
+    // Append the attributes paragraph to the draggable element
+    draggableElement.appendChild(attributesParagraph);
+
+    // Add recommendation element within the backlog-box1 element
+    if (index === 0) {
+      const recommendationElement = document.createElement("div");
+      recommendationElement.setAttribute("id", "recommendation");
+      draggableElement.appendChild(recommendationElement);
+    }
 
     backlogColumn.appendChild(draggableElement);
   });
@@ -113,7 +124,48 @@ function processCrewPackages(crewPackage) {
   updateSummaryCircle(summaryCircleC, crewPackage?.C, "C");
   updateSummaryCircle(summaryCircleD, crewPackage?.D, "D");
 
+  const bestCrewMember = getBestCrewMember(crewPackage);
+  if (bestCrewMember) {
+    displayRecommendation(bestCrewMember);
+  }
+
   console.log(boxArray);
+}
+
+function getBestCrewMember(crewPackage) {
+  const differences = {}; // Object to store the differences in workload and social contact values
+
+  // Calculate the differences between each crew member and the box values
+  for (const member in crewPackage) {
+    const package = crewPackage[member];
+    const workloadDiff = Math.abs(package.workload - boxArray[0].workload);
+    const socialContactDiff = Math.abs(
+      package.socialcontact - boxArray[0].socialcontact
+    );
+    differences[member] = workloadDiff + socialContactDiff;
+  }
+
+  // Find the crew member with the minimum difference
+  let bestCrewMember = null;
+  let minDifference = Infinity;
+  for (const member in differences) {
+    if (differences[member] < minDifference) {
+      minDifference = differences[member];
+      bestCrewMember = member;
+    }
+  }
+
+  return bestCrewMember;
+}
+
+function displayRecommendation(crewMember) {
+  // Update the recommendation display with the best crew member
+  const recommendationElement = document.getElementById("recommendation");
+  if (recommendationElement) {
+    recommendationElement.textContent = `Recommendation: ${crewMember}`;
+  } else {
+    console.error("Error: recommendationElement not found.");
+  }
 }
 
 function updateSummaryCircle(element, summary, packageId) {
