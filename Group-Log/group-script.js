@@ -31,6 +31,7 @@ const boxArray = [
     50
   ),
   new Box("8:25-11:00 - GRIP Preperation & Experiment", "👤 💼💼", 75, 10),
+  new Box("8:25-11:00 - Weekly Spaceship Housekeeping", "👤 💼", 10, 10),
 ];
 
 function fetchAndProcessCrewPackages() {
@@ -157,19 +158,20 @@ function updateRecommendations(crewPackage) {
     );
 
     if (recommendationElement) {
-      if (
-        !box.recommendation ||
-        box.recommendation !== bestCrewMembers[index]
-      ) {
+      if (!box.recommendation || box.recommendation !== bestCrewMembers[index]) {
         box.recommendation = bestCrewMembers[index];
-        recommendationElement.textContent = `Recommendation: ${box.recommendation}`;
+        if (box.recommendation) {
+          recommendationElement.textContent = `Recommendation: ${box.recommendation}`;
+        } else {
+          recommendationElement.textContent = "Recommendation: None";
+        }
       }
-    } else {
+    }
+     else {
       console.error("Error: recommendation element not found.");
     }
   });
 }
-
 function getBestCrewMembers(crewPackage) {
   const bestCrewMembers = [];
 
@@ -186,22 +188,44 @@ function getBestCrewMembers(crewPackage) {
       differences[member] = workloadDiff + socialContactDiff;
     }
 
-    // Find the crew member with the minimum difference
+    const pickedCrewMembers = bestCrewMembers.slice(); // Make a copy of already picked crew members
+
     let bestCrewMember = null;
-    let minDifference = Infinity;
+    let maxHappinessScore = -Infinity;
+
+    // Find the crew member with the maximum happiness score
     for (const member in differences) {
-      if (differences[member] < minDifference) {
-        minDifference = differences[member];
-        bestCrewMember = member;
+      if (!pickedCrewMembers.includes(member)) {
+        const happinessScore = crewPackage[member].mood - differences[member];
+        if (happinessScore > maxHappinessScore) {
+          maxHappinessScore = happinessScore;
+          bestCrewMember = member;
+        }
       }
     }
 
-    bestCrewMembers.push(bestCrewMember);
-    box.recommendation = bestCrewMember; // Set the recommendation for the box
+    if (bestCrewMember) {
+      bestCrewMembers.push(bestCrewMember);
+    } else {
+      // If no crew member is available with a positive happiness score,
+      // select the second, third, or fourth best option from the remaining crew members
+      const remainingCrewMembers = Object.keys(crewPackage).filter(
+        (member) => !pickedCrewMembers.includes(member)
+      );
+      if (remainingCrewMembers.length > 0) {
+        bestCrewMembers.push(remainingCrewMembers[0]);
+      } else {
+        // If there are no remaining crew members, assign an empty string as the recommendation
+        bestCrewMembers.push("");
+      }
+    }
+
+    box.recommendation = bestCrewMembers[bestCrewMembers.length - 1]; // Set the recommendation for the box
   });
 
   return bestCrewMembers;
 }
+
 
 function updateSummaryCircle(element, summary, packageId) {
   element.textContent = `Summary ${packageId}: ${summary?.mood || ""}`;

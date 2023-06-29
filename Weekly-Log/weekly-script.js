@@ -1,0 +1,140 @@
+// Create a constructor function for the box object
+function Box(name, description,type) {
+  this.name = name;
+  this.description = description;
+  this.type = type;
+}
+
+// Initialize the boxArray with some initial box objects
+const boxArray = [
+  new Box("EVA", "Extra Vehicular Activity", "work"),
+  new Box("Movie-Night", "New Star Wars movie", "leisure"),
+  new Box("Soccer World Cup", "Soccer championship finale", "leisure"),
+  new Box("Team-Dinner", "Extra rations dinner", "leisure"),
+];
+
+// Set the draggable boxes using the boxArray
+function setDraggableBoxes() {
+  const backlogColumn = document.querySelector(".backlog-column");
+  backlogColumn.innerHTML = ""; // Clear the column before adding boxes
+
+  boxArray.forEach((box, index) => {
+    const draggableElement = document.createElement("div");
+    draggableElement.classList.add("backlog-box", `backlog-box${index + 1}`);
+    draggableElement.setAttribute("draggable", "true");
+    draggableElement.setAttribute("ondragstart", "drag(event)");
+    draggableElement.setAttribute("id", `backlog${index + 1}`);
+
+    // Create a paragraph element to display box attributes
+    const attributesParagraph = document.createElement("p");
+    attributesParagraph.innerHTML = `<b><font size="4">Name: ${box.name}</font></b><br><font size="3">Description: ${box.description}<br>Type: ${box.type}</font>`;
+
+    // Append the attributes paragraph to the draggable element
+    draggableElement.appendChild(attributesParagraph);
+
+    backlogColumn.appendChild(draggableElement);
+  });
+}
+
+// Call the setDraggableBoxes function to initialize the draggable boxes
+setDraggableBoxes();
+
+function allowDrop(event) {
+  event.preventDefault();
+  event.target.classList.add("highlight");
+}
+
+function drag(event) {
+  event.dataTransfer.setData("text/plain", event.target.id);
+}
+function drop(event) {
+  event.preventDefault();
+  event.target.classList.remove("highlight");
+
+  const data = event.dataTransfer.getData("text/plain");
+  const draggableElement = document.getElementById(data);
+
+  // Check if the drop is allowed in the specified slots
+
+  const isTargetColumn =
+    event.target.classList.contains("droppable-column") ||
+    event.target.classList.contains("backlog-column");
+
+  if (isTargetColumn) {
+    // Create a new box object with desired attributes
+    const newBox = new Box(
+      draggableElement.getAttribute("data-name"),
+      draggableElement.getAttribute("data-description"),
+      draggableElement.getAttribute("data-type"),
+    );
+
+
+
+
+    // Add the new box object to the boxArray
+    boxArray.push(newBox);
+
+    event.target.appendChild(draggableElement);
+    draggableElement.setAttribute("draggable", "true");
+    draggableElement.classList.remove("dropped-box");
+    draggableElement.classList.add("backlog-box");
+    draggableElement.style.backgroundColor = "";
+  }
+}
+
+function fetchAndProcessCrewPackages() {
+  fetch("/crewPackage")
+    .then((res) => res.json())
+    .then((jsonData) => {
+      //console.log(jsonData); // Log the jsonData object to inspect its structure
+      processCrewPackages(jsonData);
+    })
+    .catch((error) => {
+      console.log(error); // Handle any errors that occur during the fetch request
+    });
+}
+
+function processCrewPackages(crewPackage) {
+  /*
+  const summaryCircleA = document.getElementById("summaryValueA");
+  const summaryCircleB = document.getElementById("summaryValueB");
+  const summaryCircleC = document.getElementById("summaryValueC");
+  const summaryCircleD = document.getElementById("summaryValueD");
+
+  updateSummaryCircle(summaryCircleA, crewPackage?.A, "A");
+  updateSummaryCircle(summaryCircleB, crewPackage?.B, "B");
+  updateSummaryCircle(summaryCircleC, crewPackage?.C, "C");
+  updateSummaryCircle(summaryCircleD, crewPackage?.D, "D");
+*/
+  console.log(boxArray);
+}
+
+function updateSummaryCircle(element, summary, packageId) {
+  element.textContent = `Summary ${packageId}: ${summary?.mood || ""}`;
+
+  if (summary?.mood) {
+    element.style.backgroundColor = getBackgroundColor(summary.mood);
+  } else {
+    element.style.backgroundColor = "";
+  }
+}
+
+function getBackgroundColor(value) {
+  if (value <= 20) {
+    return "red";
+  } else if (value >= 20 && value <= 40) {
+    return "orange";
+  } else if (value >= 40 && value <= 60) {
+    return "green";
+  } else if (value >= 60 && value <= 80) {
+    return "orange";
+  } else if (value >= 80) {
+    return "red";
+  }
+}
+
+// Initial fetch and process
+fetchAndProcessCrewPackages();
+
+// Set interval to fetch and process crew packages every 2 seconds
+setInterval(fetchAndProcessCrewPackages, 2000); // Adjust the interval duration as needed

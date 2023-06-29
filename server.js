@@ -12,6 +12,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(express.static("Flash-Log/"));
 app.use(express.static("Group-Log/"));
+app.use(express.static("Weekly-Log/"));
 
 app.post("/FlashLogA", (req, res) => {
   const jsonData = req.body;
